@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usuarios>
+    <usuario>
+        <nombre>admin</nombre>
+        <password>1234</password>
+        <rol>admin</rol>
+    </usuario>
+    <usuario>
+        <nombre>periodista1</nombre>
+        <password>news123</password>
+        <rol>kazetari</rol>
+    </usuario>
+    <usuario>
+        <nombre>mikel</nombre>
+        <password>ikasle</password>
+        <rol>ikasle</rol>
+    </usuario>
+</usuarios>
