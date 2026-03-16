@@ -49,50 +49,81 @@ function transformar($xmlObj, $xslPath, $parametros = []) {
 }
 
 // 3. FUNCIÓN "MÁGICA": CALCULAR CLASIFICACIÓN (15% de la nota)
-// Como la clasificación NO está en el XML, esta función la calcula y genera un XML temporal.
 function generarXMLSailkapena($xmlFederazioa, $idTemporada) {
     $equipos = [];
+    $denboraldiaSeleccionada = null;
 
-    // A. Inicializar datos de todos los equipos
-    foreach ($xmlFederazioa->TaldeGuztiak->Talde as $t) {
-        $nombre = (string)$t->Izena;
-        $equipos[$nombre] = [
-            'izena' => $nombre,
-            'ezkutua' => (string)$t->Ezkutua,
-            'pj' => 0, 'pg' => 0, 'pe' => 0, 'pp' => 0,
-            'gf' => 0, 'gc' => 0, 'puntos' => 0
-        ];
+    // A. BUSCAR LA TEMPORADA CORRECTA POR SU 'urtea'
+    foreach ($xmlFederazioa->Denboraldiak->Denboraldia as $d) {
+        if ((string)$d['urtea'] === $idTemporada) {
+            $denboraldiaSeleccionada = $d;
+            break;
+        }
     }
 
-    // B. Procesar los partidos de la temporada seleccionada
-    foreach ($xmlFederazioa->Denboraldiak->Denboraldia as $d) {
-        if ((string)$d['id'] == $idTemporada) {
-            foreach ($d->Jardunaldiak->Jardunaldi as $j) {
+    // Si no encuentra la temporada, devolvemos un XML vacío
+    if ($denboraldiaSeleccionada === null) {
+        $dom = new DOMDocument('1.0', 'UTF-8');
+        $dom->loadXML('<Sailkapena></Sailkapena>');
+        return $dom;
+    }
+
+    // B. INICIALIZAR SOLO LOS EQUIPOS DE ESTA TEMPORADA (Así salen 6, no 12)
+    if (isset($denboraldiaSeleccionada->DenboraldikoTaldeak->Talde)) {
+        foreach ($denboraldiaSeleccionada->DenboraldikoTaldeak->Talde as $t) {
+            $nombre = (string)$t->Izena;
+            $equipos[$nombre] = [
+                'izena' => $nombre,
+                'ezkutua' => (string)$t->Ezkutua,
+                'pj' => 0, 'pg' => 0, 'pe' => 0, 'pp' => 0,
+                'gf' => 0, 'gc' => 0, 'puntos' => 0
+            ];
+        }
+    }
+
+    // C. PROCESAR SOLO LOS PARTIDOS DE ESTA TEMPORADA
+    if (isset($denboraldiaSeleccionada->Jardunaldiak->Jardunaldi)) {
+        foreach ($denboraldiaSeleccionada->Jardunaldiak->Jardunaldi as $j) {
+            if (isset($j->Partidua)) {
                 foreach ($j->Partidua as $p) {
+                    
+                    // IMPORTANTE: Si el partido no se ha jugado aún, lo ignoramos
+                    if (isset($p['egoera']) && (string)$p['egoera'] === 'JokatuGabe') {
+                        continue; 
+                    }
+                    
+                    // Si por algún motivo no hay etiqueta Emaitza, también lo saltamos
+                    if (!isset($p->Emaitza)) {
+                        continue;
+                    }
+
                     $e = (string)$p->EtxekoTaldea;
                     $k = (string)$p->KanpokoTaldea;
                     $ge = (int)$p->Emaitza['etxekoGolak'];
                     $gk = (int)$p->Emaitza['kanpokoGolak'];
 
-                    // Sumar partidos y goles
-                    $equipos[$e]['pj']++; $equipos[$e]['gf'] += $ge; $equipos[$e]['gc'] += $gk;
-                    $equipos[$k]['pj']++; $equipos[$k]['gf'] += $gk; $equipos[$k]['gc'] += $ge;
+                    // Sumamos estadísticas solo si el equipo está registrado en la temporada
+                    if (isset($equipos[$e]) && isset($equipos[$k])) {
+                        // Partidos y goles
+                        $equipos[$e]['pj']++; $equipos[$e]['gf'] += $ge; $equipos[$e]['gc'] += $gk;
+                        $equipos[$k]['pj']++; $equipos[$k]['gf'] += $gk; $equipos[$k]['gc'] += $ge;
 
-                    // Lógica de puntos
-                    if ($ge > $gk) {
-                        $equipos[$e]['puntos'] += 3; $equipos[$e]['pg']++; $equipos[$k]['pp']++;
-                    } elseif ($ge < $gk) {
-                        $equipos[$k]['puntos'] += 3; $equipos[$k]['pg']++; $equipos[$e]['pp']++;
-                    } else {
-                        $equipos[$e]['puntos'] += 1; $equipos[$k]['puntos'] += 1;
-                        $equipos[$e]['pe']++; $equipos[$k]['pe']++;
+                        // Lógica de puntos
+                        if ($ge > $gk) {
+                            $equipos[$e]['puntos'] += 3; $equipos[$e]['pg']++; $equipos[$k]['pp']++;
+                        } elseif ($ge < $gk) {
+                            $equipos[$k]['puntos'] += 3; $equipos[$k]['pg']++; $equipos[$e]['pp']++;
+                        } else {
+                            $equipos[$e]['puntos'] += 1; $equipos[$k]['puntos'] += 1;
+                            $equipos[$e]['pe']++; $equipos[$k]['pe']++;
+                        }
                     }
                 }
             }
         }
     }
 
-    // C. Ordenar por puntos (y diferencia de goles en caso de empate)
+    // D. ORDENAR POR PUNTOS (Y diferencia de goles en caso de empate)
     uasort($equipos, function($a, $b) {
         if ($a['puntos'] == $b['puntos']) {
             return ($b['gf'] - $b['gc']) - ($a['gf'] - $a['gc']);
@@ -100,15 +131,15 @@ function generarXMLSailkapena($xmlFederazioa, $idTemporada) {
         return $b['puntos'] - $a['puntos'];
     });
 
-    // D. CREAR UN NUEVO DOCUMENTO XML CON LOS RESULTADOS
-    // Esto es lo que leerá tu sailkapena.xsl
+    // E. CREAR EL XML FINAL PARA EL XSLT
     $xmlSalida = new SimpleXMLElement('<Sailkapena></Sailkapena>');
     $xmlSalida->addAttribute('temporada', $idTemporada);
     
     foreach ($equipos as $datos) {
         $linea = $xmlSalida->addChild('Lerroa');
-        $linea->addChild('Taldea', $datos['izena']);
-        $linea->addChild('Ezkutua', $datos['ezkutua']);
+        // htmlspecialchars evita errores si algún nombre tiene tildes raras o símbolos
+        $linea->addChild('Taldea', htmlspecialchars($datos['izena']));
+        $linea->addChild('Ezkutua', htmlspecialchars($datos['ezkutua']));
         $linea->addChild('PJ', $datos['pj']);
         $linea->addChild('Puntuak', $datos['puntos']);
         $linea->addChild('Irabaziak', $datos['pg']);
@@ -118,7 +149,6 @@ function generarXMLSailkapena($xmlFederazioa, $idTemporada) {
         $linea->addChild('AurkakoGolak', $datos['gc']);
     }
 
-    // Convertimos SimpleXML a DOMDocument para que sea compatible con la función transformar
     $dom = dom_import_simplexml($xmlSalida)->ownerDocument;
     return $dom;
 }
