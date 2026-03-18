@@ -1,16 +1,21 @@
-<?php 
+<?php
 session_start();
 $pageTitle = "Berriak";
-include 'includes/header.php'; 
+include 'includes/header.php';
 include_once 'includes/functions.php';
 ?>
 
 <main class="w3-container">
-    <div class="w3-container w3-center w3-padding-32">
-        <h2 style="color: #871521; font-weight:bold;">BERRIAK</h2>
+  <xsl:template match="/">
+    <div class="orri-titulua-container">
+      <h2 class="orri-titulua">GURE TALDEAK</h2>
+      <span class="orri-marra"></span>
     </div>
 
-    <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] == 'kazetari'): ?>
+    <div class="w3-container" style="display: flex; flex-wrap: wrap; justify-content: center;">
+    </div>
+
+    <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'kazetari'): ?>
         <div class="w3-container w3-margin-bottom w3-center">
             <div class="w3-panel w3-light-grey w3-leftbar w3-border-blue w3-padding-16">
                 <p><i>Kazetari gisa konektatuta zaude. Albiste berriak argitaratu ditzakezu.</i></p>

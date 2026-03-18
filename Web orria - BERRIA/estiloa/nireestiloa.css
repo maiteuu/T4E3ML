@@ -7,7 +7,13 @@ body {
     width: 100%;
     overflow-x: hidden;
     box-sizing: border-box;
+}
 
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 *,
@@ -19,6 +25,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
+    flex: 1;
 }
 
 /* HEADER-REN DAUDEN GAUZAK */
@@ -449,10 +456,28 @@ footer {
 .sailkapenaTabla {
     font-size: 150%;
     border-collapse: collapse;
-    margin-left: 5%;
-    width: 90%;
+    width: 80%;
     font-family: Arial;
     align-self: center;
+}
+
+.sailkapenaTabla th:nth-child(1),
+.sailkapenaTabla td:nth-child(1) {
+    width: 1%;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+.sailkapenaTabla th:nth-child(2),
+.sailkapenaTabla td:nth-child(2) {
+    width: 70%;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.sailkapenaTabla th,
+.sailkapenaTabla td {
+    text-align: center;
 }
 
 .sailkapenaTabla thead {
@@ -463,9 +488,7 @@ footer {
     width: 100%;
 }
 
-.sailkapenaTabla th {
-    width: 10%;
-}
+
 
 .sailkapenaTabla tr {
     border-bottom: #868283 solid 1px;
@@ -474,9 +497,7 @@ footer {
     font-size: 80%;
 }
 
-.sailkapenaTabla td {
-    width: 10%;
-}
+
 
 .posisioa {
     font-weight: bold;
@@ -493,8 +514,34 @@ footer {
     font-size: 80%;
 }
 
-/* Quita el subrayado a los enlaces del menú sin cambiar su posición ni tamaño */
+
 .menuBotoia a {
     text-decoration: none !important;
-    color: inherit; /* Mantiene el color blanco/crema que ya tenías */
+    color: inherit; 
+}
+
+.orri-titulua-container {
+    text-align: center;
+    width: 100%;
+    margin: 30px 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.orri-titulua {
+    color: #871521;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 0 #ddd;
+    margin: 0 0 10px 0 !important; 
+}
+
+.orri-marra {
+    display: inline-block;
+    width: 80px;
+    height: 4px;
+    background-color: #871521;
+    border-radius: 2px;
 }

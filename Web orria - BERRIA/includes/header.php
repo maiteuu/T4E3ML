@@ -19,16 +19,16 @@ $xml = cargarXML();
         <img src="irudiak/FNFS Logo granate transparente.png" alt="Logo" class="logoa">
     </a>
     
-    <nav>
-        <div class="menuBotoia"><a href="index.php">Hasiera</a></div>
-        <div class="menuBotoia"><a href="taldeak.php">Taldeak</a></div>
-        <div class="menuBotoia"><a href="sailkapena.php">Sailkapena</a></div>
-        <div class="menuBotoia"><a href="berriak.php">Berriak</a></div>
-        
-        <?php if(!isset($_SESSION['usuario'])): ?>
-            <div class="menuBotoia"><a href="login.php">Login</a></div>
-        <?php else: ?>
-            <div class="menuBotoia"><a href="logout.php">Logout</a></div>
-        <?php endif; ?>
-    </nav>
+   <nav>
+    <a class="menuBotoia" href="index.php">Hasiera</a>
+    <a class="menuBotoia" href="taldeak.php">Taldeak</a>
+    <a class="menuBotoia" href="sailkapena.php">Sailkapena</a>
+    <a class="menuBotoia" href="berriak.php">Berriak</a>
+    
+    <?php if(!isset($_SESSION['usuario'])): ?>
+        <a class="menuBotoia" href="login.php">Login</a>
+    <?php else: ?>
+        <a class="menuBotoia" href="logout.php">Logout</a>
+    <?php endif; ?>
+</nav>
 </header>
