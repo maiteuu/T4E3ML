@@ -4,7 +4,6 @@ $pageTitle = "Taldeak";
 include 'includes/header.php';
 require_once 'includes/functions.php';
 
-// Rutas actualizadas
 $xmlRuta = 'xml/federazioa.xml';
 $xsdRuta = 'xml/federazioa.xsd';
 $xslRuta = 'xml/taldeak.xsl'; 

@@ -59,7 +59,6 @@ nav {
 
 }
 
-@media (min-width: 800px) {}
 
 nav .menuBotoia {
     color: #f9f4f1;
@@ -556,7 +555,7 @@ th {
     vertical-align: middle;
 }
 
-/* Usamos un ID para tener máxima prioridad sobre nireestiloa.css */
+
 #seccion-leyenda-unica {
     display: flex;
     justify-content: space-evenly;
@@ -594,7 +593,6 @@ th {
     letter-spacing: 0.5px;
 }
 
-/* === 1. ESTILOS BASE PARA ESCRITORIO === */
 .container-tabla-movil {
     width: 95%;
     max-width: 750px;
@@ -608,30 +606,25 @@ th {
     font-family: sans-serif;
 }
 
-/* Forzamos el tamaño de los escudos */
 .sailkapenaTabla img {
     width: 30px !important;
     height: 30px !important;
     object-fit: contain;
 }
 
-/* === 2. ADAPTACIÓN PARA MÓVILES (Menos de 600px) === */
+
 @media screen and (max-width: 600px) {
-    
-    /* Forzamos que el contenedor use todo el ancho */
+
     .container-tabla-movil {
         width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
     }
 
-    /* Reducimos el texto general para que no se amontone */
     .sailkapenaTabla {
         font-size: 13px !important;
     }
 
-    /* OCULTAR COLUMNAS: PJ(3), PG(4), PE(5), PP(6) */
-    /* Usamos nth-of-type para asegurar puntería exacta */
     .sailkapenaTabla th:nth-of-type(4), 
     .sailkapenaTabla td:nth-of-type(4),
     .sailkapenaTabla th:nth-of-type(5), 
@@ -641,19 +634,17 @@ th {
         display: none !important;
     }
 
-    /* Ajustamos el padding para ganar espacio horizontal */
     .sailkapenaTabla th, 
     .sailkapenaTabla td {
         padding: 10px 4px !important;
     }
 
-    /* Reducimos un poco el escudo en móvil */
     .sailkapenaTabla img {
         width: 22px !important;
         height: 22px !important;
     }
 
-    /* Ajuste de la leyenda para que quepa en dos filas */
+
     #seccion-leyenda-unica {
         flex-wrap: wrap !important;
         gap: 10px !important;
@@ -671,41 +662,77 @@ th {
         font-size: 0.9em;
     }
 
-    /* Columna Equipo (2): Que use el máximo espacio */
     .sailkapenaTabla th:nth-of-type(2), 
     .sailkapenaTabla td:nth-of-type(2) {
         width: auto !important; 
     }
 
-    /* Columna PJ (3): Estilo discreto */
+
     .sailkapenaTabla th:nth-of-type(3) {
         width: 35px !important;
-        color: white !important; /* Gris para que no compita con Puntos */
+        color: white !important;
         font-weight: normal !important;
         text-align: center !important;
     }
 
         .sailkapenaTabla td:nth-of-type(3) {
         width: 35px !important;
-        color: grey !important; /* Gris para que no compita con Puntos */
+        color: grey !important; 
         font-weight: normal !important;
         text-align: center !important;
     }
 
 
-    /* Columna PUNTOS (7): Estilo destacado */
+
     .sailkapenaTabla th:nth-of-type(7), 
     .sailkapenaTabla td:nth-of-type(7) {
         width: 45px !important;
-        font-size: 1.1em !important; /* Un poco más grande */
-        background-color: rgba(135, 21, 33, 0.05); /* Un tono muy suave de fondo */
+        font-size: 1.1em !important; 
+        background-color: rgba(135, 21, 33, 0.05);
     }
 
-    /* Ajuste para que el nombre del equipo no se corte */
+
     .sailkapenaTabla td:nth-of-type(2) a {
-        white-space: normal !important; /* Permite que el nombre baje de línea si es muy largo */
+        white-space: normal !important;
         line-height: 1.2;
         font-size: 12px !important;
     }
+
+      .taldeenTaula thead {
+    display: none;
+  }
+ 
+  .taldeenTaula tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+
+  .taldeenTaula td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    border-bottom: 1px solid #eee;
+    padding: 10px 15px !important;
+  }
+  
+  .taldeenTaula td:last-child {
+    border-bottom: none;
+  }
+  
+
+  .taldeenTaula td::before {
+    font-weight: bold;
+    color: #871521;
+  }
+  
+  .taldeenTaula td:nth-child(1)::before { content: "Argazkia:"; }
+  .taldeenTaula td:nth-child(2)::before { content: "Dortsala:"; }
+  .taldeenTaula td:nth-child(3)::before { content: "Izena:"; }
+  .taldeenTaula td:nth-child(4)::before { content: "Posizioa:"; }
 
 }
