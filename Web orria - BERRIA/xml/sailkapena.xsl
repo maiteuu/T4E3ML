@@ -2,8 +2,8 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/">
 
-        <div class="w3-responsive w3-margin-bottom"
-            style="width: 95%; max-width: 750px; margin: 0 auto;">
+<div class="w3-responsive w3-margin-bottom container-tabla-movil" 
+     style="width: 95%; max-width: 750px; margin: 0 auto;">
             <div class="w3-card-4 w3-round-large w3-white"
                 style="overflow: hidden; border: 1px solid #ddd;">
 
@@ -11,7 +11,8 @@
                     <thead>
                         <tr
                             style="background-color: #871521; color: white; text-transform: uppercase; font-size: 0.9em;">
-                            <th class="w3-center w3-padding-16" style="width: 60px;">Pos</th>
+                            <th class="w3-center w3-padding-16"
+                                style="width: 60px; box-shadow: inset 5px 0 0 0 #871521;">Pos</th>
                             <th class="w3-padding-16" style="text-align: left; padding-left: 15px;">
         Taldea</th>
                             <th class="w3-center w3-padding-16">PJ</th>
@@ -47,14 +48,12 @@
                                 </xsl:choose>
                             </xsl:variable>
 
-                            <tr
-                                style="background-color: {$bgColor}; cursor: pointer; border-bottom: 1px solid #eee;">
-
+                          <tr
+                                style="background-color: {$bgColor}; cursor: pointer;">
                                 <td class="w3-center"
-                                    style="vertical-align: middle; font-weight: bold; border-left: 5px solid {$borderColor};">
+                                    style="vertical-align: middle; font-weight: bold; box-shadow: inset 5px 0 0 0 {$borderColor};">
                                     <xsl:value-of select="$pos" />
                                 </td>
-
                                 <td style="vertical-align: middle; padding-left: 15px;">
                                     <a href="taldeak.php?izena={Taldea}&amp;origen=sailkapena"
                                         style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; font-weight: bold;">
@@ -63,20 +62,24 @@
                                         <xsl:value-of select="Taldea" />
                                     </a>
                                 </td>
-                                <td class="w3-center" style="vertical-align: middle;">
+                                <td class="w3-center"
+                                    style="vertical-align: middle; color: #666; font-size: 0.9em;">
                                     <xsl:value-of select="PJ" />
                                 </td>
-                                <td class="w3-center" style="vertical-align: middle;">
+                                <td class="w3-center"
+                                    style="vertical-align: middle; color: #666; font-size: 0.9em;">
                                     <xsl:value-of select="Irabaziak" />
                                 </td>
-                                <td class="w3-center" style="vertical-align: middle;">
+                                <td class="w3-center"
+                                    style="vertical-align: middle; color: #666; font-size: 0.9em;">
                                     <xsl:value-of select="Berdinduak" />
                                 </td>
-                                <td class="w3-center" style="vertical-align: middle;">
+                                <td class="w3-center"
+                                    style="vertical-align: middle; color: #666; font-size: 0.9em;">
                                     <xsl:value-of select="Galduak" />
                                 </td>
                                 <td class="w3-center"
-                                    style="vertical-align: middle; font-size: 1.1em; color: #871521;">
+                                    style="vertical-align: middle; font-size: 1em; color: #871521; font-weight: 800;">
                                     <strong>
                                         <xsl:value-of select="Puntuak" />
                                     </strong>
@@ -85,53 +88,24 @@
                         </xsl:for-each>
                     </tbody>
                 </table>
-
-<style>
-                    .box-leyenda {
-                        background-color: #fafafa;
-                        border-top: 1px solid #eaeaea;
-                        padding: 10px 5px; /* Márgenes superior/inferior reducidos a la mitad */
-                        text-align: center;
-                        width: 100%;
-                    }
-                    .item-leyenda {
-                        display: inline-block;
-                        margin: 2px 12px; /* Márgenes laterales mucho más ajustados */
-                        font-size: 0.85em; /* Texto un poco más pequeño y elegante */
-                        font-weight: bold;
-                        color: #666; /* Gris más suave */
-                        white-space: nowrap; /* Sigue protegiendo contra el overlap */
-                    }
-                    .punto-leyenda {
-                        font-size: 1.2em; /* Punto proporcionado al texto */
-                        vertical-align: middle;
-                        margin-right: 4px; /* Punto más pegado a la palabra */
-                        line-height: 0;
-                    }
-                    .texto-leyenda {
-                        vertical-align: middle;
-                        text-transform: uppercase; /* Mayúsculas tipo web deportiva */
-                        letter-spacing: 0.5px; /* Un poco de aire entre las letras */
-                    }
-                </style>
-
-                <div class="box-leyenda">
-                    
-                    <div class="item-leyenda">
-                        <span class="punto-leyenda" style="color: #fbc02d;">&#9679;</span>
-                        <span class="texto-leyenda">Txapelduna</span>
-                    </div>
-                    
-                    <div class="item-leyenda">
-                        <span class="punto-leyenda" style="color: #2196f3;">&#9679;</span>
-                        <span class="texto-leyenda">Europako Kopa</span>
-                    </div>
-                    
-                    <div class="item-leyenda">
-                        <span class="punto-leyenda" style="color: #f44336;">&#9679;</span>
-                        <span class="texto-leyenda">Jaitsiera</span>
+                <div id="seccion-leyenda-unica">
+                    <div class="item-leyenda-seguro">
+                        <span class="punto-leyenda-seguro"
+                            style="background-color: #fbc02d !important;">&#160;</span>
+                        <span class="texto-leyenda-seguro">Txapelduna</span>
                     </div>
 
+                    <div class="item-leyenda-seguro">
+                        <span class="punto-leyenda-seguro"
+                            style="background-color: #2196f3 !important;">&#160;</span>
+                        <span class="texto-leyenda-seguro">Europako Kopa</span>
+                    </div>
+
+                    <div class="item-leyenda-seguro">
+                        <span class="punto-leyenda-seguro"
+                            style="background-color: #f44336 !important;">&#160;</span>
+                        <span class="texto-leyenda-seguro">Jaitsiera</span>
+                    </div>
                 </div>
             </div>
         </div>

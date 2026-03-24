@@ -62,7 +62,7 @@
               </header>
 
               <div class="w3-container w3-padding-24">
-                <div class="w3-row" style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px; justify-content: space-between;">
+                <div class="w3-row" style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px; justify-content: space-between;">
                   
                   <div class="w3-col m3 w3-padding">
                     <p style="margin-top: 0;">
@@ -77,9 +77,10 @@
 
                   <div class="w3-col m8">
                     <h4 class="w3-border-bottom w3-padding-16" style="margin-top: 0; color: #333;">Jokalariak</h4>
-                    <table class="w3-table w3-striped w3-bordered w3-hoverable">
+                    <table class="w3-table w3-striped w3-bordered w3-hoverable taldeenTaula">
                       <thead>
                         <tr style="background-color:#f1f1f1; color: #555;">
+                          <th>Argazkia</th>
                           <th>Dortsala</th>
                           <th>Izena</th>
                           <th>Posizioa</th>
@@ -89,6 +90,9 @@
                         <xsl:for-each select="Jokalariak/Jokalari">
                           <xsl:sort select="@Dortsala" data-type="number" order="ascending"></xsl:sort>
                           <tr>
+                            <td> <img class="w3-image jokalariArgazkia" src="irudiak/jokalariak/{Argazkia}"
+                                    alt="Plater irudia" />
+                                  </td>
                             <td>
                               <xsl:value-of select="@Dortsala" />
                             </td>

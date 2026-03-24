@@ -8,7 +8,7 @@ include_once 'includes/functions.php';
 <main class="w3-container">
   <xsl:template match="/">
     <div class="orri-titulua-container">
-      <h2 class="orri-titulua">GURE TALDEAK</h2>
+      <h2 class="orri-titulua">BERRIAK</h2>
       <span class="orri-marra"></span>
     </div>
 
