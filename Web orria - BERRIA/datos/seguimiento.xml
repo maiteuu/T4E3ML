@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<seguimiento>
+    <jugador nombre="jokalari">
+        <dieta>
+            <comida tipo="Gosaria">Avena esnearekin eta fruta.</comida>
+            <comida tipo="Bazkaria">Arroza oilaskoarekin eta entsalada.</comida>
+            <comida tipo="Afaria">Legatza labean barazkiekin.</comida>
+            <oharrak>Gogoratu egunean 2 litro ur edatea.</oharrak>
+        </dieta>
+        <entrenamendua>
+            <saioa egun="Astelehena">Indarra: Hankak eta Sorbalda (45 min)</saioa>
+            <saioa egun="Asteazkena">Kardioa: Korrika saio motza (30 min)</saioa>
+            <saioa egun="Ostirala">Erresistentzia: Partidu aurreko teknika.</saioa>
+        </entrenamendua>
+    </jugador>
+</seguimiento>

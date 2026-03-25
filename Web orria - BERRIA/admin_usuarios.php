@@ -1,0 +1,186 @@
+<?php
+session_start();
+require_once 'includes/functions.php';
+
+// 1. SEGURIDAD: Solo el rol admin puede acceder
+if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
+    header("Location: index.php");
+    exit();
+}
+
+$xmlPath = 'datos/usuarios.xml';
+// Cargamos el XML. Es importante que el archivo tenga permisos de escritura.
+$usuariosXML = simplexml_load_file($xmlPath);
+
+// --- 2. LÓGICA DE ELIMINAR (GET) ---
+if (isset($_GET['delete'])) {
+    $nombreBorrar = $_GET['delete'];
+    
+    // Evitar que el admin se borre a sí mismo
+    if ($nombreBorrar !== $_SESSION['usuario']) {
+        $index = 0;
+        foreach ($usuariosXML->usuario as $u) {
+            if ((string)$u->nombre === $nombreBorrar) {
+                unset($usuariosXML->usuario[$index]);
+                break;
+            }
+            $index++;
+        }
+        $usuariosXML->asXML($xmlPath); // Guardar cambios en el archivo
+        header("Location: admin_usuarios.php?msg=deleted");
+        exit();
+    }
+}
+
+// --- 3. LÓGICA DE CREAR / EDITAR (POST) ---
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $nomNuevo = $_POST['nombre'];
+    $pass = $_POST['pass'];
+    $rol = isset($_POST['rol']) ? $_POST['rol'] : ''; 
+    $mode = $_POST['mode'];
+    $nomAntiguo = $_POST['nombre_antiguo'];
+
+    if ($mode === 'new') {
+        // Crear nuevo nodo
+        $nuevo = $usuariosXML->addChild('usuario');
+        $nuevo->addChild('nombre', $nomNuevo);
+        $nuevo->addChild('password', $pass);
+        $nuevo->addChild('rol', $rol);
+    } else {
+        // Editar nodo existente buscando por el nombre que tenía antes
+        foreach ($usuariosXML->usuario as $u) {
+            if ((string)$u->nombre === $nomAntiguo) {
+                
+                // Si el admin se está editando a sí mismo:
+                if ($nomAntiguo === $_SESSION['usuario']) {
+                    $_SESSION['usuario'] = $nomNuevo; // Actualizamos la sesión con el nuevo nombre
+                } else {
+                    // Solo cambiamos el rol si NO es el admin actual
+                    $u->rol = $rol;
+                }
+
+                $u->nombre = $nomNuevo;
+                $u->password = $pass;
+                break;
+            }
+        }
+    }
+    
+    // PERSISTENCIA: Escribir los cambios de la memoria al archivo XML
+    $usuariosXML->asXML($xmlPath); 
+    header("Location: admin_usuarios.php?msg=success");
+    exit();
+}
+
+$pageTitle = "Erabiltzaileen Kudeaketa";
+include 'includes/header.php';
+?>
+
+<main class="w3-container w3-padding-32">
+    <div class="orri-titulua-container">
+        <h2 class="orri-titulua">ADMINISTRAZIO PANELA</h2>
+        <span class="orri-marra"></span>
+    </div>
+
+    <div class="w3-responsive w3-card-4 w3-white w3-round-large" style="max-width: 900px; margin: auto;">
+        <table class="w3-table w3-striped w3-hoverable">
+            <tr style="background-color: #871521; color: white;">
+                <th>Erabiltzailea</th>
+                <th>Pasahitza</th>
+                <th>Rola</th>
+                <th class="w3-center">Ekintzak</th>
+            </tr>
+            <?php foreach ($usuariosXML->usuario as $u): 
+                $esPropio = ((string)$u->nombre === $_SESSION['usuario']);
+            ?>
+            <tr class="<?php echo $esPropio ? 'w3-pale-yellow' : ''; ?>">
+                <td>
+                    <strong><?php echo htmlspecialchars($u->nombre); ?></strong>
+                    <?php if($esPropio) echo ' <span class="w3-tag w3-round w3-amber w3-small">NI</span>'; ?>
+                </td>
+                <td>••••••••</td>
+                <td><span class="w3-tag w3-round w3-blue-grey w3-small"><?php echo strtoupper($u->rol); ?></span></td>
+                <td class="w3-center">
+                    <button onclick="editUser('<?php echo $u->nombre; ?>', '<?php echo $u->password; ?>', '<?php echo $u->rol; ?>', <?php echo $esPropio ? 'true' : 'false'; ?>)" 
+                            class="w3-button w3-small w3-teal w3-round">Editatu</button>
+                    
+                    <?php if(!$esPropio): ?>
+                        <a href="?delete=<?php echo $u->nombre; ?>" 
+                           class="w3-button w3-small w3-red w3-round" 
+                           onclick="return confirm('Ziur zaude erabiltzaile hau ezabatu nahi duzula?')">Ezabatu</a>
+                    <?php endif; ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
+
+    <div class="w3-center w3-margin-top">
+        <button onclick="newUser()" class="w3-button w3-green w3-round-large"><b>+</b> Erabiltzaile Berria</button>
+    </div>
+
+    <div id="modalUser" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-animate-top w3-round-large" style="max-width: 450px;">
+            <header class="w3-container" style="background-color: #871521; color: white; border-radius: 8px 8px 0 0;">
+                <span onclick="document.getElementById('modalUser').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                <h3 id="modalTitle">Erabiltzailea</h3>
+            </header>
+            
+            <form class="w3-container w3-padding-24" method="POST">
+                <input type="hidden" name="mode" id="formMode" value="new">
+                <input type="hidden" name="nombre_antiguo" id="formNombreAntiguo">
+                
+                <label><b>Erabiltzaile Izena</b></label>
+                <input class="w3-input w3-border w3-round w3-margin-bottom" type="text" name="nombre" id="formNombre" required>
+                
+                <label><b>Pasahitza</b></label>
+                <input class="w3-input w3-border w3-round w3-margin-bottom" type="text" name="pass" id="formPass" required>
+                
+                <label><b>Rola</b></label>
+                <p id="avisoRol" class="w3-tiny w3-text-red w3-margin-0" style="display:none;">Ezin duzu zure rola aldatu saioa hasita duzun bitartean.</p>
+                <select class="w3-select w3-border w3-round" name="rol" id="formRol">
+                    <option value="jokalari">Jokalari</option>
+                    <option value="kazetari">Kazetari</option>
+                    <option value="admin">Admin</option>
+                </select>
+                
+                <button type="submit" class="w3-button w3-block w3-margin-top w3-round-large" style="background-color: #871521; color: white;">GORDE</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script>
+function newUser() {
+    document.getElementById('modalTitle').innerText = 'Erabiltzaile Berria';
+    document.getElementById('formMode').value = 'new';
+    document.getElementById('formNombre').value = '';
+    document.getElementById('formNombreAntiguo').value = '';
+    document.getElementById('formNombre').readOnly = false;
+    document.getElementById('formRol').disabled = false;
+    document.getElementById('avisoRol').style.display = 'none';
+    document.getElementById('modalUser').style.display = 'block';
+}
+
+function editUser(nom, pass, rol, esPropio) {
+    document.getElementById('modalTitle').innerText = 'Editatu Erabiltzailea';
+    document.getElementById('formMode').value = 'edit';
+    document.getElementById('formNombreAntiguo').value = nom; 
+    document.getElementById('formNombre').value = nom;
+    document.getElementById('formNombre').readOnly = false; // Ahora sí se puede cambiar
+    document.getElementById('formPass').value = pass;
+    document.getElementById('formRol').value = rol;
+
+    if (esPropio) {
+        document.getElementById('formRol').disabled = true;
+        document.getElementById('avisoRol').style.display = 'block';
+    } else {
+        document.getElementById('formRol').disabled = false;
+        document.getElementById('avisoRol').style.display = 'none';
+    }
+
+    document.getElementById('modalUser').style.display = 'block';
+}
+</script>
+
+<?php include 'includes/footer.php'; ?>

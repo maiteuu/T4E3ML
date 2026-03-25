@@ -25,7 +25,15 @@ $xml = cargarXML();
     <a class="menuBotoia" href="taldeak.php">Taldeak</a>
     <a class="menuBotoia" href="sailkapena.php">Sailkapena</a>
     <a class="menuBotoia" href="berriak.php">Berriak</a>
+
+    <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] == 'jokalari'): ?>
+        <a class="menuBotoia" href="nire_panela.php">Nire Panela</a>
+    <?php endif; ?>
     
+    <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin'): ?>
+        <a class="menuBotoia" href="admin_usuarios.php">Erabiltzaileen Kudeaketa</a>
+    <?php endif; ?>
+
     <?php if(!isset($_SESSION['usuario'])): ?>
         <a class="menuBotoia" href="login.php">Login</a>
     <?php else: ?>

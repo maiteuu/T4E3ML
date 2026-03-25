@@ -6,13 +6,13 @@
         <rol>admin</rol>
     </usuario>
     <usuario>
-        <nombre>periodista1</nombre>
-        <password>news123</password>
+        <nombre>periodista</nombre>
+        <password>1234</password>
         <rol>kazetari</rol>
     </usuario>
     <usuario>
-        <nombre>mikel</nombre>
-        <password>ikasle</password>
-        <rol>ikasle</rol>
+        <nombre>Markel</nombre>
+        <password>1234</password>
+        <rol>jokalari</rol>
     </usuario>
 </usuarios>

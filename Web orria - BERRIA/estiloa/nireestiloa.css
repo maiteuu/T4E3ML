@@ -736,3 +736,17 @@ th {
   .taldeenTaula td:nth-child(4)::before { content: "Posizioa:"; }
 
 }
+
+.w3-card-4 header h3 {
+    margin: 15px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.w3-ul li {
+    border-bottom: 1px solid #eee !important;
+}
+
+.w3-ul li:last-child {
+    border-bottom: 0 !important;
+}
