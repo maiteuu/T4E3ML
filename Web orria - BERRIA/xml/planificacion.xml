@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<planificacion>
+    <tipo id="partido" izena="Partidu Astea">
+        <eguna izena="Astelehena">
+            <goizez>Gimnasioa: Core, egonkortasuna eta prebentzioa (Iskioak + aduktoreak). Mugikortasuna.</goizez>
+            <arratsaldez>Pista: Banakako teknika (kontrola, pasea, gidatzea)</arratsaldez>
+            <intentsitatea>Baxua-Ertaina</intentsitatea>
+            <dieta>
+                <gosaria>Ogi integrala + ahuakatea + indioilarra. Fruta eta jogurta.</gosaria>
+                <bazkaria>Pasta integrala, oilaskoa plantxan eta barazkiak.</bazkaria>
+                <askaria>Platanoa eta jogurta/irabiakia.</askaria>
+                <afaria>Legatza, patata egosia eta entsalada.</afaria>
+            </dieta>
+        </eguna>
+        <eguna izena="Asteartea">
+            <goizez>Gimnasioa: Beheko trena (indarra) eta Pliometria.</goizez>
+            <arratsaldez>Pista: Rondo lehiakorrak, joko murriztuak (intentsitate handia) eta trantsizioak.</arratsaldez>
+            <intentsitatea>ALTUA🔥</intentsitatea>
+            <dieta>
+                <gosaria>Oloa + platanoa + eztia. 2 arrautza eta kafea. (Post-gym: Proteina irabiakia + fruta).</gosaria>
+                <bazkaria>Arroz zuria, txahala eta barazkiak.</bazkaria>
+                <askaria>Tostadak mermeladarekin eta fruta.</askaria>
+                <afaria>Pasta, oilaskoa/atuna eta barazkiak.</afaria>
+            </dieta>
+        </eguna>
+        <eguna izena="Asteazkena">
+            <goizez>Gimnasioa: HIIT laburra (errepikapen leherkorrak)</goizez>
+            <arratsaldez>Pista: 3x3/4x4 eta erremateak.</arratsaldez>
+            <intentsitatea>Ertaina-Altua</intentsitatea>
+            <dieta>
+                <gosaria>Jogurta + granola + fruta. Tostada kakahuete-kremarekin.</gosaria>
+                <bazkaria>Kinoa, oilaskoa eta barazkiak.</bazkaria>
+                <askaria>Fruta eta fruitu lehorrak.</askaria>
+                <afaria>Arraina, boniatoa eta entsalada.</afaria>
+            </dieta>
+        </eguna>
+        <eguna izena="Osteguna">
+            <goizez>Gimnasio: Arina (Konpentsatorioa eta korea). Mugikortasuna.</goizez>
+            <arratsaldez>Pista: Joko-sistemak eta baloia geldirik estrategia.</arratsaldez>
+            <intentsitatea>Ertaina</intentsitatea>
+            <dieta>
+                <gosaria>Oloa + fruta eta arrautzak.</gosaria>
+                <bazkaria>Arroza, indioilarra eta barazkiak.</bazkaria>
+                <askaria>Jogurta + platanoa.</askaria>
+                <afaria>Arrain zuria, barazkiak eta ogi pixka bat.</afaria>
+            </dieta>
+        </eguna>
+        <eguna izena="Ostirala">
+            <goizez>Bideo analisia eta prestakuntza mentala.</goizez>
+            <arratsaldez>Pista: Saio laburra (Rondoak, erremateak eta estrategia).</arratsaldez>
+            <intentsitatea>Baxua⚡</intentsitatea>
+            <dieta>
+                <gosaria>Tostadak + eztia, jogurta eta fruta.</gosaria>
+                <bazkaria>Pasta zuria eta oilaskoa.</bazkaria>
+                <askaria>Platanoa eta barra energetikoa.</askaria>
+                <afaria>Arroz zuria eta arraina/tortilla.</afaria>
+            </dieta>
+        </eguna>
+        <eguna izena="Larunbata">
+            <goizez>Gimnasioa: Aktibazio arina.</goizez>
+            <arratsaldez></arratsaldez>
+            <intentsitatea>MAXIMOA🚀</intentsitatea>
+            <dieta>
+                <gosaria>Tostadak + eztia, olo arina eta fruta.</gosaria>
+                <bazkaria>Arroza/pasta oilaskoarekin (Partidua baino 3-4 ordu lehenago).</bazkaria>
+                <askaria>Platanoa/edari isotonikoa (Aurre-partidua).</askaria>
+                <afaria>Pasta/arroza, oilaskoa/arraina eta barazki arinak.</afaria>
+            </dieta>
+        </eguna>
+        <eguna izena="Igandea">
+            <goizez>Gimnasioa: 20-30 min aerobiko leuna (bizikleta/igerilekua), mugikortasuna eta fisioterapia.</goizez>
+            <arratsaldez>Atsedena</arratsaldez>
+            <intentsitatea>Oso baxua</intentsitatea>
+            <dieta>
+                <gosaria>Oloa jogurtarekin, fruitu gorriak eta intxaurrak. Arrautza 1 + 2 zuringo. Kafea/tea</gosaria>
+                <bazkaria>Arroz integrala, izokina eta barazkiak oliba-olioarekin.</bazkaria>
+                <askaria>Fruta eta proteina irabiakia. Tostada integrala ahuakatearekin.</askaria>
+                <afaria>Barazki krema, tortilla frantsesa eta ogi integrala.</afaria>
+            </dieta>
+        </eguna>
+    </tipo>
+
+    <tipo id="atseden" izena="Atseden / Karga Astea">
+        <eguna izena="Astelehena">
+            <goizez>Gimnasioa: Indar maximoa (Beheko trena + korea).</goizez>
+            <arratsaldez>Pista: Banakako teknika.</arratsaldez>
+            <intentsitatea>Ertaina</intentsitatea>
+            <dieta>
+                <gosaria>Oloa + fruta + fruitu lehorrak. Arrautzak. (Post-gym: Proteina irabiakia).</gosaria>
+                <bazkaria>Arroz integrala, oilaskoa eta barazkiak.</bazkaria>
+                <askaria>Jogurta + fruta.</askaria>
+                <afaria>Arraina, barazkiak eta patata.</afaria>
+            </dieta>
+        </eguna>
+        <eguna izena="Asteartea">
+            <goizez>Gimnasioa: HIIT.</goizez>
+            <arratsaldez>Pista: Joko murriztuak eta presioa/trantsizioak.</arratsaldez>
+            <intentsitatea>ALTUA🔥</intentsitatea>
+            <dieta>
+                <gosaria>Oloa + platanoa + eztia. Arrautzak.</gosaria>
+                <bazkaria>Pasta, txahala eta barazkiak.</bazkaria>
+                <askaria>Tostadak marmeladarekin.</askaria>
+                <afaria>Arroza, oilaskoa eta barazkiak.</afaria>
+            </dieta>
+        </eguna>
+        <eguna izena="Asteazkena">
+            <goizez>Gimnasioa: Potentzia eta pliometria.</goizez>
+            <arratsaldez>Pista: 1vs1 eta errematea.</arratsaldez>
+            <intentsitatea>Ertaina-Altua</intentsitatea>
+            <dieta>
+                <gosaria>Jogurta + granola eta fruta.</gosaria>
+                <bazkaria>Kinoa, oilaskoa eta barazkiak.</bazkaria>
+                <askaria>Fruta eta fruitu lehorrak.</askaria>
+                <afaria>Arraina eta boniatoa.</afaria>
+            </dieta>
+        </eguna>
+        <eguna izena="Osteguna">
+            <goizez>Atsedena.</goizez>
+            <arratsaldez>Pista: Jabetza luzeak, etengabeko trantsizioak eta interbalikoa.</arratsaldez>
+            <intentsitatea>ALTUA🔥</intentsitatea>
+            <dieta>
+                <gosaria>Oloa + platanoa + eztia. Arrautzak.</gosaria>
+                <bazkaria>Pasta, txahala eta barazkiak.</bazkaria>
+                <askaria>Tostadak marmeladarekin.</askaria>
+                <afaria>Arroza, oilaskoa eta barazkiak.</afaria>
+            </dieta>
+        </eguna>
+        <eguna izena="Ostirala">
+            <goizez>Gimnasioa: Mugikortasuna eta igerilekua/bizikleta leuna.</goizez>
+            <arratsaldez>Pista: Joko sistemak.</arratsaldez>
+            <intentsitatea>Ertaina-Baxua</intentsitatea>
+            <dieta>
+                <gosaria>Tostadak + ahuakatea + indioilarra.</gosaria>
+                <bazkaria>Arroza, arraina eta barazkiak.</bazkaria>
+                <askaria>Jogurta.</askaria>
+                <afaria>Barazkiak eta proteina arina.</afaria>
+            </dieta>
+        </eguna>
+        <eguna izena="Larunbata">
+            <goizez>ENTRENAMENDU-PARTIDA: Barne-partidua (exigentzia altua).</goizez>
+            <arratsaldez>Gimnasioa: 20-30 min aerobiko leuna (bizikleta/igerilekua), mugikortasuna eta fisioterapia.</arratsaldez>
+            <intentsitatea>ALTUA🔥</intentsitatea>
+            <dieta>
+                <gosaria>Oloa + platanoa + eztia. Arrautzak.</gosaria>
+                <bazkaria>Arroz zuria, txahala eta barazkiak.</bazkaria>
+                <askaria>Tostadak marmeladarekin eta fruta.</askaria>
+                <afaria>Pasta, oilaskoa eta barazkiak.</afaria>
+            </dieta>
+        </eguna>
+        <eguna izena="Igandea">
+            <goizez>Atsedena.</goizez>
+            <arratsaldez>Atsedena.</arratsaldez>
+            <intentsitatea>Oso baxua</intentsitatea>
+            <dieta>
+                <gosaria>Oloa jogurtarekin, fruitu gorriak eta intxaurrak. Arrautza 1 + 2 zuringo. Kafea/tea</gosaria>
+                <bazkaria>Arroz integrala, izokina eta barazkiak oliba-olioarekin.</bazkaria>
+                <askaria>Fruta eta proteina irabiakia. Tostada integrala ahuakatearekin.</askaria>
+                <afaria>Barazki krema, tortilla frantsesa eta ogi integrala.</afaria>
+            </dieta>
+        </eguna>
+    </tipo>
+</planificacion>

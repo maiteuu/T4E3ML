@@ -750,3 +750,103 @@ th {
 .w3-ul li:last-child {
     border-bottom: 0 !important;
 }
+
+/* --- Nire Panela Estiloak (Bertsio Hobetua) --- */
+
+/* Definición fuerte de la cuadrícula */
+.tabla-plan {
+    border-collapse: collapse;
+    width: 100%;
+    /* Borde exterior más fuerte */
+    border: 2px solid #999 !important; 
+}
+
+.tabla-plan th, .tabla-plan td {
+    /* Bordes interiores más oscuros y gruesos */
+    border: 1px solid #bbb !important; 
+    padding: 12px;
+}
+
+/* Cabeceras de tabla */
+.tabla-plan th {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Columna de días */
+.col-eguna {
+    background-color: #e0e0e0;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    width: 110px;
+    vertical-align: middle !important;
+    /* Borde derecho más fuerte para separar el día */
+    border-right: 2px solid #999 !important; 
+}
+
+/* Etiquetas de categoría (Gimnasioa, Pista, Comidas) */
+.label-mota {
+    font-weight: bold;
+    font-size: 0.75em;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.label-gym { color: #0D47A1; } /* Azul fuerte */
+.label-pista { color: #B71C1C; } /* Rojo fuerte */
+
+.label-dieta { 
+    color: #004D40; /* Verde oscuro */
+    border-bottom: 1px solid #ccc; 
+    margin-bottom: 5px; 
+    font-style: italic; 
+    padding-bottom: 2px;
+}
+
+/* Estados especiales (ATSEDENA, PARTIDUA en grande) */
+.txt-grande {
+    font-size: 1.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.color-atseden { color: #757575; } /* Gris medio */
+.color-partidu { color: #871521; } /* Granate equipo */
+
+/* --- RESALTADO DÍA DE PARTIDO OFICIAL --- */
+/* Dorado más intenso para que sea muy evidente */
+.fila-partidu-ofiziala {
+    background-color: #fff176 !important; /* Amarillo dorado más saturado */
+}
+
+/* Borde exterior grueso y dorado para toda la fila */
+.fila-partidu-ofiziala td {
+    border-top: 2px solid #fbc02d !important;
+    border-bottom: 2px solid #fbc02d !important;
+}
+
+/* Asegurar que la columna del día también se resalta pero mantiene su estructura */
+.fila-partidu-ofiziala .col-eguna {
+    background-color: #fdd835 !important; /* Dorado más oscuro para el día */
+    color: #000;
+}
+
+/* Selector de semana */
+.selector-semana-container {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.selector-card {
+    display: inline-block;
+    border: 2px solid #871521;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
