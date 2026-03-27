@@ -31,7 +31,7 @@ $xml = cargarXML();
     <?php endif; ?>
     
     <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin'): ?>
-        <a class="menuBotoia" href="admin_usuarios.php">Erabiltzaileen Kudeaketa</a>
+        <a class="menuBotoia" href="admin_erabiltzaileak.php">Erabiltzaileen Kudeaketa</a>
     <?php endif; ?>
 
     <?php if(!isset($_SESSION['usuario'])): ?>

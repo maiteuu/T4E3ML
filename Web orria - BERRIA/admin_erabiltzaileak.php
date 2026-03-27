@@ -8,58 +8,58 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
     exit();
 }
 
-$xmlPath = 'datos/usuarios.xml';
+$xmlPath = 'datos/erabiltzaileak.xml';
 // Cargamos el XML. Es importante que el archivo tenga permisos de escritura.
-$usuariosXML = simplexml_load_file($xmlPath);
+$erabiltzaileakXML = simplexml_load_file($xmlPath);
 
 // --- 2. LÓGICA DE ELIMINAR (GET) ---
 if (isset($_GET['delete'])) {
-    $nombreBorrar = $_GET['delete'];
+    $izenaBorrar = $_GET['delete'];
     
     // Evitar que el admin se borre a sí mismo
-    if ($nombreBorrar !== $_SESSION['usuario']) {
+    if ($izenaBorrar !== $_SESSION['erabiltzailea']) {
         $index = 0;
-        foreach ($usuariosXML->usuario as $u) {
-            if ((string)$u->nombre === $nombreBorrar) {
-                unset($usuariosXML->usuario[$index]);
+        foreach ($erabiltzaileakXML->erabiltzailea as $u) {
+            if ((string)$u->izena === $izenaBorrar) {
+                unset($erabiltzaileakXML->erabiltzailea[$index]);
                 break;
             }
             $index++;
         }
-        $usuariosXML->asXML($xmlPath); // Guardar cambios en el archivo
-        header("Location: admin_usuarios.php?msg=deleted");
+        $erabiltzaileakXML->asXML($xmlPath); // Guardar cambios en el archivo
+        header("Location: admin_erabiltzaileak.php?msg=deleted");
         exit();
     }
 }
 
 // --- 3. LÓGICA DE CREAR / EDITAR (POST) ---
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nomNuevo = $_POST['nombre'];
+    $nomNuevo = $_POST['izena'];
     $pass = $_POST['pass'];
     $rol = isset($_POST['rol']) ? $_POST['rol'] : ''; 
     $mode = $_POST['mode'];
-    $nomAntiguo = $_POST['nombre_antiguo'];
+    $nomAntiguo = $_POST['izena_antiguo'];
 
     if ($mode === 'new') {
         // Crear nuevo nodo
-        $nuevo = $usuariosXML->addChild('usuario');
-        $nuevo->addChild('nombre', $nomNuevo);
+        $nuevo = $erabiltzaileakXML->addChild('erabiltzailea');
+        $nuevo->addChild('izena', $nomNuevo);
         $nuevo->addChild('password', $pass);
         $nuevo->addChild('rol', $rol);
     } else {
-        // Editar nodo existente buscando por el nombre que tenía antes
-        foreach ($usuariosXML->usuario as $u) {
-            if ((string)$u->nombre === $nomAntiguo) {
+        // Editar nodo existente buscando por el izena que tenía antes
+        foreach ($erabiltzaileakXML->erabiltzailea as $u) {
+            if ((string)$u->izena === $nomAntiguo) {
                 
                 // Si el admin se está editando a sí mismo:
-                if ($nomAntiguo === $_SESSION['usuario']) {
-                    $_SESSION['usuario'] = $nomNuevo; // Actualizamos la sesión con el nuevo nombre
+                if ($nomAntiguo === $_SESSION['erabiltzailea']) {
+                    $_SESSION['erabiltzailea'] = $nomNuevo; // Actualizamos la sesión con el nuevo izena
                 } else {
                     // Solo cambiamos el rol si NO es el admin actual
                     $u->rol = $rol;
                 }
 
-                $u->nombre = $nomNuevo;
+                $u->izena = $nomNuevo;
                 $u->password = $pass;
                 break;
             }
@@ -67,8 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     
     // PERSISTENCIA: Escribir los cambios de la memoria al archivo XML
-    $usuariosXML->asXML($xmlPath); 
-    header("Location: admin_usuarios.php?msg=success");
+    $erabiltzaileakXML->asXML($xmlPath); 
+    header("Location: admin_erabiltzaileak.php?msg=success");
     exit();
 }
 
@@ -90,22 +90,22 @@ include 'includes/header.php';
                 <th>Rola</th>
                 <th class="w3-center">Ekintzak</th>
             </tr>
-            <?php foreach ($usuariosXML->usuario as $u): 
-                $esPropio = ((string)$u->nombre === $_SESSION['usuario']);
+            <?php foreach ($erabiltzaileakXML->erabiltzailea as $u): 
+                $esPropio = ((string)$u->izena === $_SESSION['erabiltzailea']);
             ?>
             <tr class="<?php echo $esPropio ? 'w3-pale-yellow' : ''; ?>">
                 <td>
-                    <strong><?php echo htmlspecialchars($u->nombre); ?></strong>
+                    <strong><?php echo htmlspecialchars($u->izena); ?></strong>
                     <?php if($esPropio) echo ' <span class="w3-tag w3-round w3-amber w3-small">NI</span>'; ?>
                 </td>
                 <td>••••••••</td>
                 <td><span class="w3-tag w3-round w3-blue-grey w3-small"><?php echo strtoupper($u->rol); ?></span></td>
                 <td class="w3-center">
-                    <button onclick="editUser('<?php echo $u->nombre; ?>', '<?php echo $u->password; ?>', '<?php echo $u->rol; ?>', <?php echo $esPropio ? 'true' : 'false'; ?>)" 
+                    <button onclick="editUser('<?php echo $u->izena; ?>', '<?php echo $u->password; ?>', '<?php echo $u->rol; ?>', <?php echo $esPropio ? 'true' : 'false'; ?>)" 
                             class="w3-button w3-small w3-teal w3-round">Editatu</button>
                     
                     <?php if(!$esPropio): ?>
-                        <a href="?delete=<?php echo $u->nombre; ?>" 
+                        <a href="?delete=<?php echo $u->izena; ?>" 
                            class="w3-button w3-small w3-red w3-round" 
                            onclick="return confirm('Ziur zaude erabiltzaile hau ezabatu nahi duzula?')">Ezabatu</a>
                     <?php endif; ?>
@@ -128,10 +128,10 @@ include 'includes/header.php';
             
             <form class="w3-container w3-padding-24" method="POST">
                 <input type="hidden" name="mode" id="formMode" value="new">
-                <input type="hidden" name="nombre_antiguo" id="formNombreAntiguo">
+                <input type="hidden" name="izena_antiguo" id="formizenaAntiguo">
                 
                 <label><b>Erabiltzaile Izena</b></label>
-                <input class="w3-input w3-border w3-round w3-margin-bottom" type="text" name="nombre" id="formNombre" required>
+                <input class="w3-input w3-border w3-round w3-margin-bottom" type="text" name="izena" id="formizena" required>
                 
                 <label><b>Pasahitza</b></label>
                 <input class="w3-input w3-border w3-round w3-margin-bottom" type="text" name="pass" id="formPass" required>
@@ -154,9 +154,9 @@ include 'includes/header.php';
 function newUser() {
     document.getElementById('modalTitle').innerText = 'Erabiltzaile Berria';
     document.getElementById('formMode').value = 'new';
-    document.getElementById('formNombre').value = '';
-    document.getElementById('formNombreAntiguo').value = '';
-    document.getElementById('formNombre').readOnly = false;
+    document.getElementById('formizena').value = '';
+    document.getElementById('formizenaAntiguo').value = '';
+    document.getElementById('formizena').readOnly = false;
     document.getElementById('formRol').disabled = false;
     document.getElementById('avisoRol').style.display = 'none';
     document.getElementById('modalUser').style.display = 'block';
@@ -165,9 +165,9 @@ function newUser() {
 function editUser(nom, pass, rol, esPropio) {
     document.getElementById('modalTitle').innerText = 'Editatu Erabiltzailea';
     document.getElementById('formMode').value = 'edit';
-    document.getElementById('formNombreAntiguo').value = nom; 
-    document.getElementById('formNombre').value = nom;
-    document.getElementById('formNombre').readOnly = false; // Ahora sí se puede cambiar
+    document.getElementById('formizenaAntiguo').value = nom; 
+    document.getElementById('formizena').value = nom;
+    document.getElementById('formizena').readOnly = false; // Ahora sí se puede cambiar
     document.getElementById('formPass').value = pass;
     document.getElementById('formRol').value = rol;
 

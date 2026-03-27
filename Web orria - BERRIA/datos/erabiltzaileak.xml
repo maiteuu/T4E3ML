@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<erabiltzaileak>
+    <erabiltzailea>
+        <izena>admin</izena>
+        <password>1234</password>
+        <rol>admin</rol>
+    </erabiltzailea>
+    <erabiltzailea>
+        <izena>periodista</izena>
+        <password>1234</password>
+        <rol>kazetari</rol>
+    </erabiltzailea>
+    <erabiltzailea>
+        <izena>Markel</izena>
+        <password>1234</password>
+        <rol>jokalari</rol>
+    </erabiltzailea>
+</erabiltzaileak>

@@ -67,7 +67,7 @@ nav .menuBotoia {
     transition: all 0.2s ease;
     display: inline-block;
     text-decoration: none;
-
+    text-wrap-mode: nowrap;
 }
 
 nav .menuBotoia:hover a {
@@ -353,6 +353,8 @@ footer {
 
     }
 
+    
+
     .eskutu-kontainer {
         height: 200px;
     }
@@ -615,6 +617,71 @@ th {
 
 
 @media screen and (max-width: 600px) {
+
+    .w3-responsive {
+        overflow-x: visible !important;
+    }
+
+    /* Obligamos a todos los elementos de la tabla a comportarse como bloques (apilados) */
+    .tabla-plan, 
+    .tabla-plan thead, 
+    .tabla-plan tbody, 
+    .tabla-plan th, 
+    .tabla-plan td, 
+    .tabla-plan tr { 
+        display: block; 
+        width: 100%;
+    }
+
+    /* Ocultamos los encabezados de arriba (Eguna, Goiza, Arratsaldea...) porque ya no tienen sentido */
+    .tabla-plan thead { 
+        display: none;
+    }
+
+    /* Cada fila (<tr>) ahora es una tarjeta independiente */
+    .tabla-plan tr {
+        margin-bottom: 25px;
+        border: 2px solid #871521 !important; /* Borde granate */
+        border-radius: 12px;
+        overflow: hidden; /* Mantiene las esquinas redondeadas */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        background-color: #fff;
+    }
+
+    /* Quitamos los bordes internos gruesos y dejamos líneas separadoras finas */
+    .tabla-plan td { 
+        border: none !important;
+        border-bottom: 1px solid #eee !important; 
+        padding: 15px !important;
+        text-align: center !important; /* Centramos el texto en móvil */
+    }
+
+    /* El último elemento de la tarjeta no necesita línea debajo */
+    .tabla-plan td:last-child {
+        border-bottom: none !important;
+    }
+
+    /* Convertimos la celda del "Día" (Astelehena, Asteartea...) en la CABECERA de la tarjeta */
+    .tabla-plan .col-eguna {
+        background-color: #871521 !important;
+        color: white !important;
+        font-size: 1.3em;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 12px !important;
+    }
+
+    /* --- AJUSTES ESPECIALES PARA EL DÍA DE PARTIDO EN MÓVIL --- */
+    .fila-partidu-ofiziala {
+        border-color: #fbc02d !important; /* Borde dorado */
+        box-shadow: 0 5px 15px rgba(251, 192, 45, 0.3);
+    }
+    
+    .fila-partidu-ofiziala .col-eguna {
+        background-color: #fbc02d !important; /* Cabecera dorada */
+        color: #000 !important;
+    }
 
     .container-tabla-movil {
         width: 100% !important;
@@ -911,4 +978,99 @@ th {
 .botoi-kaxa {
     margin-top: auto;
     padding-top: 10px;
+}
+
+.contenedor-panela {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* --- ASTE MOTAREN HAUTATZAILEAREN ESTILOAK --- */
+
+.selector-astea-container {
+    margin-bottom: 30px; /* Beheko taulatik ondo banantzeko marjina */
+    display: flex;
+    justify-content: center; /* Bloke osoa erdiratzen dugu */
+}
+
+.selector-form {
+    background-color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 50px; /* Ertz oso biribilduak, pilula itxurakoak */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Itzal leuna */
+    display: inline-flex;
+    align-items: center;
+    gap: 15px; /* Testuaren eta hedagarriaren arteko tartea */
+    border: 1px solid #eaeaea;
+}
+
+.selector-label {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+    margin: 0;
+}
+
+.selector-label i {
+    color: #871521; /* Klubaren kolore granateko ikonoa */
+    margin-right: 5px;
+}
+
+/* <select>-aren gezia pertsonalizatzeko bilgailua (wrapper) */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.selector-desplegable {
+    appearance: none; /* Nabigatzailearen berezko estilo itsusia kentzen dugu */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #871521; /* Testu granatea */
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Saguarekin gainetik pasatzean edo klik egitean */
+.selector-desplegable:hover, 
+.selector-desplegable:focus {
+    border-color: #871521;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(135, 21, 33, 0.1);
+}
+
+/* Gure gezi-ikono pertsonalizatua */
+.select-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #871521;
+    pointer-events: none; /* Klikak ikonotik zehar select-era iristeko */
+    font-size: 12px;
+}
+
+/* Pantaila txfikietarako egokitzapena (mugikorrak) */
+@media screen and (max-width: 600px) {
+    .selector-form {
+        flex-direction: column; /* Testua eta hautatzailea pilatzen ditugu mugikorrean */
+        width: 100%;
+        border-radius: 12px; /* Biribiltzea murrizten dugu mugikorrean */
+        padding: 20px;
+        gap: 10px;
+    }
+    
+    .select-wrapper, 
+    .selector-desplegable {
+        width: 100%;
+    }
 }

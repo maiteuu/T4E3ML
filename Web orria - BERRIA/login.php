@@ -7,12 +7,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $passIn = $_POST['pass'];
 
     // Cargar usuarios desde el XML
-    $usuariosXML = simplexml_load_file('datos/usuarios.xml');
+    $usuariosXML = simplexml_load_file('datos/erabiltzaileak.xml');
     $encontrado = false;
 
-    foreach ($usuariosXML->usuario as $u) {
-        if ($u->nombre == $userIn && $u->password == $passIn) {
-            $_SESSION['usuario'] = (string)$u->nombre;
+    foreach ($usuariosXML->erabiltzailea as $u) {
+        if ($u->izena == $userIn && $u->password == $passIn) {
+            $_SESSION['erabiltzailea'] = (string)$u->izena;
             $_SESSION['rol'] = (string)$u->rol;
             $encontrado = true;
             header("Location: index.php"); // Redirigir a inicio

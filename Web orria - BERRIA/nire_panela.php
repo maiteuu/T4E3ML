@@ -7,34 +7,39 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'jokalari') {
     exit();
 }
 
-$tipoSemana = isset($_GET['mota']) ? $_GET['mota'] : ($_COOKIE['preferencia_semana'] ?? 'partido');
+$motaAstea = isset($_GET['mota']) ? $_GET['mota'] : ($_COOKIE['preferencia_astea'] ?? 'partido');
 if (isset($_GET['mota'])) {
-    setcookie("preferencia_semana", $tipoSemana, time() + (86400 * 30), "/");
+    setcookie("preferencia_astea", $motaAstea, time() + (86400 * 30), "/");
 }
 
-$xmlPath = 'xml/planificacion.xml';
+$xmlPath = 'xml/planifikazioa.xml';
 if (!file_exists($xmlPath)) { die("Errorea: Ez da aurkitu '$xmlPath' fitxategia."); }
 
 $xml = simplexml_load_file($xmlPath);
-$resultado = $xml->xpath("//tipo[@id='$tipoSemana']");
+$resultado = $xml->xpath("//mota[@id='$motaAstea']");
 $plana = $resultado[0];
 
 $pageTitle = "Nire Panela";
 include 'includes/header.php';
 ?>
 
-<main class="w3-container w3-padding-32">
+<main class="w3-container w3-padding-32 contenedor-panela">
     <header class="orri-titulua-container w3-center w3-margin-bottom">
         <h2 class="orri-titulua">NIRE PLANA: <?php echo strtoupper($plana['izena']); ?></h2>
     </header>
 
-    <section class="selector-semana-container">
-        <form method="GET" action="nire_panela.php" class="w3-card selector-card w3-padding w3-round-large">
-            <label class="w3-bold">Aukeratu aste mota: </label>
-            <select name="mota" class="w3-select w3-border-0 w3-white" style="width:auto; font-weight:bold; cursor:pointer;" onchange="this.form.submit()">
-                <option value="partido" <?= ($tipoSemana == 'partido') ? 'selected' : ''; ?>>Partidu Astea</option>
-                <option value="atseden" <?= ($tipoSemana == 'atseden') ? 'selected' : ''; ?>>Atseden Astea</option>
-            </select>
+<section class="selector-astea-container">
+        <form method="GET" action="nire_panela.php" class="selector-form">
+            <label for="mota-select" class="selector-label">
+                <i class="fa fa-filter"></i> Aukeratu aste mota:
+            </label>
+            <div class="select-wrapper">
+                <select id="mota-select" name="mota" class="selector-desplegable" onchange="this.form.submit()">
+                    <option value="partido" <?= ($motaAstea == 'partido') ? 'selected' : ''; ?>>Partidu Astea</option>
+                    <option value="atseden" <?= ($motaAstea == 'atseden') ? 'selected' : ''; ?>>Atseden Astea</option>
+                </select>
+                <i class="fa fa-chevron-down select-icon"></i>
+            </div>
         </form>
     </section>
 
@@ -54,8 +59,7 @@ include 'includes/header.php';
                 </thead>
                 <tbody>
                     <?php foreach ($plana->eguna as $eguna): 
-                        // Lógica de detección: SÁBADO y semana de PARTIDO
-                        $esPartidoReal = ($tipoSemana == 'partido' && (string)$eguna['izena'] == 'Larunbata');
+                        $esPartidoReal = ($motaAstea == 'partido' && (string)$eguna['izena'] == 'Larunbata');
                     ?>
                     <tr class="<?= $esPartidoReal ? 'fila-partidu-ofiziala' : ''; ?>">
                         <td class="col-eguna"><?= $eguna['izena']; ?></td>
@@ -108,7 +112,7 @@ include 'includes/header.php';
                 </thead>
                 <tbody>
                     <?php foreach ($plana->eguna as $eguna): 
-                        $esPartidoReal = ($tipoSemana == 'partido' && (string)$eguna['izena'] == 'Larunbata');
+                        $esPartidoReal = ($motaAstea == 'partido' && (string)$eguna['izena'] == 'Larunbata');
                     ?>
                     <tr class="<?= $esPartidoReal ? 'fila-partidu-ofiziala' : ''; ?>">
                         <td class="col-eguna"><?= $eguna['izena']; ?></td>

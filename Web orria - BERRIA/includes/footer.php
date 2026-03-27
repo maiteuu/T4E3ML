@@ -7,9 +7,9 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <footer>
         <div class="info-sesion" style="margin-left: 12px;">
-            <?php if (isset($_SESSION['usuario'])): ?>
+            <?php if (isset($_SESSION['erabiltzailea'])): ?>
                 <p>
-                    <strong>Usuario:</strong> <?php echo htmlspecialchars($_SESSION['usuario']); ?> 
+                    <strong>Erabiltzailea:</strong> <?php echo htmlspecialchars($_SESSION['erabiltzailea']); ?> 
                     (<?php echo htmlspecialchars($_SESSION['rol']); ?>)
                 </p>
             <?php endif; ?>

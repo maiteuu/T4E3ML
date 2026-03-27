@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <planificacion>
-    <tipo id="partido" izena="Partidu Astea">
+    <mota id="partido" izena="Partidu Astea">
         <eguna izena="Astelehena">
             <goizez>Gimnasioa: Core, egonkortasuna eta prebentzioa (Iskioak + aduktoreak). Mugikortasuna.</goizez>
             <arratsaldez>Pista: Banakako teknika (kontrola, pasea, gidatzea)</arratsaldez>
@@ -78,9 +78,9 @@
                 <afaria>Barazki krema, tortilla frantsesa eta ogi integrala.</afaria>
             </dieta>
         </eguna>
-    </tipo>
+    </mota>
 
-    <tipo id="atseden" izena="Atseden / Karga Astea">
+    <mota id="atseden" izena="Atseden / Karga Astea">
         <eguna izena="Astelehena">
             <goizez>Gimnasioa: Indar maximoa (Beheko trena + korea).</goizez>
             <arratsaldez>Pista: Banakako teknika.</arratsaldez>
@@ -158,5 +158,5 @@
                 <afaria>Barazki krema, tortilla frantsesa eta ogi integrala.</afaria>
             </dieta>
         </eguna>
-    </tipo>
+    </mota>
 </planificacion>
