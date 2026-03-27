@@ -1,22 +1,15 @@
 <?php
 session_start();
 require_once 'includes/functions.php';
-
-// 1. SEGURIDAD: Solo el rol admin puede acceder
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
     header("Location: index.php");
     exit();
 }
 
 $xmlPath = 'datos/erabiltzaileak.xml';
-// Cargamos el XML. Es importante que el archivo tenga permisos de escritura.
 $erabiltzaileakXML = simplexml_load_file($xmlPath);
-
-// --- 2. LÓGICA DE ELIMINAR (GET) ---
 if (isset($_GET['delete'])) {
     $izenaBorrar = $_GET['delete'];
-    
-    // Evitar que el admin se borre a sí mismo
     if ($izenaBorrar !== $_SESSION['erabiltzailea']) {
         $index = 0;
         foreach ($erabiltzaileakXML->erabiltzailea as $u) {
@@ -26,13 +19,12 @@ if (isset($_GET['delete'])) {
             }
             $index++;
         }
-        $erabiltzaileakXML->asXML($xmlPath); // Guardar cambios en el archivo
+        $erabiltzaileakXML->asXML($xmlPath);
         header("Location: admin_erabiltzaileak.php?msg=deleted");
         exit();
     }
 }
 
-// --- 3. LÓGICA DE CREAR / EDITAR (POST) ---
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nomNuevo = $_POST['izena'];
     $pass = $_POST['pass'];
@@ -41,21 +33,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nomAntiguo = $_POST['izena_antiguo'];
 
     if ($mode === 'new') {
-        // Crear nuevo nodo
         $nuevo = $erabiltzaileakXML->addChild('erabiltzailea');
         $nuevo->addChild('izena', $nomNuevo);
         $nuevo->addChild('password', $pass);
         $nuevo->addChild('rol', $rol);
     } else {
-        // Editar nodo existente buscando por el izena que tenía antes
+
         foreach ($erabiltzaileakXML->erabiltzailea as $u) {
             if ((string)$u->izena === $nomAntiguo) {
-                
-                // Si el admin se está editando a sí mismo:
                 if ($nomAntiguo === $_SESSION['erabiltzailea']) {
-                    $_SESSION['erabiltzailea'] = $nomNuevo; // Actualizamos la sesión con el nuevo izena
+                    $_SESSION['erabiltzailea'] = $nomNuevo;
                 } else {
-                    // Solo cambiamos el rol si NO es el admin actual
                     $u->rol = $rol;
                 }
 
@@ -65,8 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
     }
-    
-    // PERSISTENCIA: Escribir los cambios de la memoria al archivo XML
+
     $erabiltzaileakXML->asXML($xmlPath); 
     header("Location: admin_erabiltzaileak.php?msg=success");
     exit();
