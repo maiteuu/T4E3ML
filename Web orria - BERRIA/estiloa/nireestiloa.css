@@ -248,7 +248,8 @@ footer {
     color: #f9f4f1;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 10px;
+    margin-top: 10px;
+    align-items: center;
 }
 
 .kontaktua {
@@ -751,30 +752,23 @@ th {
     border-bottom: 0 !important;
 }
 
-/* --- Nire Panela Estiloak (Bertsio Hobetua) --- */
-
-/* Definición fuerte de la cuadrícula */
 .tabla-plan {
     border-collapse: collapse;
     width: 100%;
-    /* Borde exterior más fuerte */
     border: 2px solid #999 !important; 
 }
 
 .tabla-plan th, .tabla-plan td {
-    /* Bordes interiores más oscuros y gruesos */
     border: 1px solid #bbb !important; 
     padding: 12px;
 }
 
-/* Cabeceras de tabla */
 .tabla-plan th {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* Columna de días */
 .col-eguna {
     background-color: #e0e0e0;
     color: #333;
@@ -782,11 +776,9 @@ th {
     text-align: center;
     width: 110px;
     vertical-align: middle !important;
-    /* Borde derecho más fuerte para separar el día */
     border-right: 2px solid #999 !important; 
 }
 
-/* Etiquetas de categoría (Gimnasioa, Pista, Comidas) */
 .label-mota {
     font-weight: bold;
     font-size: 0.75em;
@@ -796,18 +788,17 @@ th {
     letter-spacing: 0.5px;
 }
 
-.label-gym { color: #0D47A1; } /* Azul fuerte */
-.label-pista { color: #B71C1C; } /* Rojo fuerte */
+.label-gym { color: #0D47A1; } 
+.label-pista { color: #B71C1C; } 
 
 .label-dieta { 
-    color: #004D40; /* Verde oscuro */
+    color: #004D40; 
     border-bottom: 1px solid #ccc; 
     margin-bottom: 5px; 
     font-style: italic; 
     padding-bottom: 2px;
 }
 
-/* Estados especiales (ATSEDENA, PARTIDUA en grande) */
 .txt-grande {
     font-size: 1.4em;
     font-weight: bold;
@@ -817,28 +808,23 @@ th {
     padding: 10px 0;
 }
 
-.color-atseden { color: #757575; } /* Gris medio */
-.color-partidu { color: #871521; } /* Granate equipo */
+.color-atseden { color: #757575; } 
+.color-partidu { color: #871521; } 
 
-/* --- RESALTADO DÍA DE PARTIDO OFICIAL --- */
-/* Dorado más intenso para que sea muy evidente */
 .fila-partidu-ofiziala {
-    background-color: #fff176 !important; /* Amarillo dorado más saturado */
+    background-color: #fff176 !important;
 }
 
-/* Borde exterior grueso y dorado para toda la fila */
 .fila-partidu-ofiziala td {
     border-top: 2px solid #fbc02d !important;
     border-bottom: 2px solid #fbc02d !important;
 }
 
-/* Asegurar que la columna del día también se resalta pero mantiene su estructura */
 .fila-partidu-ofiziala .col-eguna {
-    background-color: #fdd835 !important; /* Dorado más oscuro para el día */
+    background-color: #fdd835 !important;
     color: #000;
 }
 
-/* Selector de semana */
 .selector-semana-container {
     text-align: center;
     margin-bottom: 24px;
@@ -849,4 +835,80 @@ th {
     border: 2px solid #871521;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.sare-berriak {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 30px; 
+    padding: 20px;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.tarjeta-berria-grid {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eaeaea;
+}
+
+.tarjeta-berria-grid:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(135, 21, 33, 0.15); 
+}
+
+.imagen-berria-grid {
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+}
+
+.imagen-berria-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tarjeta-berria-grid:hover .imagen-berria-grid img {
+    transform: scale(1.05);
+}
+
+.texto-berria-grid {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.texto-berria-grid h3 {
+    color: #871521;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.deskribapena-texto {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.5;
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.botoi-kaxa {
+    margin-top: auto;
+    padding-top: 10px;
 }

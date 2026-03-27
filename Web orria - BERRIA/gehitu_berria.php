@@ -10,12 +10,11 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'kazetari') {
 require_once 'includes/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Zure XML-aren arabera, izenbururik ez daukazu, deskribapena eta esteka baizik
     $deskribapena = $_POST['deskribapena'];
     $esteka = $_POST['esteka'];
     $irudiaNom = $_FILES['irudia']['name'];
 
-    // Irudia kargatu
+    // Irudia kargatzen dugu
     $target_dir = "irudiak/berriak/";
     $target_file = $target_dir . basename($_FILES["irudia"]["name"]);
     
@@ -24,13 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $xmlPath = 'xml/berriak.xml';
         $xml = simplexml_load_file($xmlPath);
 
-        // Zure XML-aren orden berean gehituko dugu: irudia, esteka, deskribapena
+
         $berriBerria = $xml->addChild('berria');
         $berriBerria->addChild('irudia', htmlspecialchars($irudiaNom));
         $berriBerria->addChild('esteka', htmlspecialchars($esteka));
         $berriBerria->addChild('deskribapena', htmlspecialchars($deskribapena));
+        $berriBerria->addChild('tituloa', htmlspecialchars($tituloa));
 
-        // Gorde fitxategia
         $xml->asXML($xmlPath);
         $mezua = "Albistea ondo gorde da!";
     } else {
@@ -56,6 +55,11 @@ include 'includes/header.php';
             <?php endif; ?>
 
             <div class="w3-section">
+                <label><b>Albistearen Tituloa</b> </label>
+                <textarea class="w3-input w3-border w3-round" name="tituloa" rows="1" required></textarea>
+            </div>
+
+             <div class="w3-section">
                 <label><b>Albistearen Deskribapena</b> (Hau da webgunean agertuko den testua)</label>
                 <textarea class="w3-input w3-border w3-round" name="deskribapena" rows="3" required></textarea>
             </div>
