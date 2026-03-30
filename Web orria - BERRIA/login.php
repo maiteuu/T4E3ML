@@ -7,10 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $passIn = $_POST['pass'];
 
     // Cargar usuarios desde el XML
-    $usuariosXML = simplexml_load_file('datos/erabiltzaileak.xml');
+    $usuariosXML = simplexml_load_file('xml/federazioa.xml');
     $encontrado = false;
 
-    foreach ($usuariosXML->erabiltzailea as $u) {
+    foreach ($usuariosXML->Erabiltzaileak->Erabiltzailea as $u) {
         if ($u->izena == $userIn && $u->password == $passIn) {
             $_SESSION['erabiltzailea'] = (string)$u->izena;
             $_SESSION['rol'] = (string)$u->rol;

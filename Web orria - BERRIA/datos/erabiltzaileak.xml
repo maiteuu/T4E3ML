@@ -15,4 +15,9 @@
         <password>1234</password>
         <rol>jokalari</rol>
     </erabiltzailea>
+    <erabiltzailea>
+        <izena>oier</izena>
+        <password>oier</password>
+        <rol>kazetari</rol>
+    </erabiltzailea>
 </erabiltzaileak>

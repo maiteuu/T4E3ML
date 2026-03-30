@@ -98,11 +98,12 @@
         <xs:element name="Erabiltzaileak">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="erabiltzailea" minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="Erabiltzailea" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="erabiltzaile" type="xs:string" />
-                    <xs:element name="pasahitza" type="xs:string" />
+                    <xs:element name="izena" type="xs:string" />
+                    <xs:element name="password" type="xs:string" />
+                    <xs:element name="rol" type="xs:string" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>

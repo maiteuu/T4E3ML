@@ -34,7 +34,7 @@ $xml = cargarXML();
         <a class="menuBotoia" href="admin_erabiltzaileak.php">Erabiltzaileen Kudeaketa</a>
     <?php endif; ?>
 
-    <?php if(!isset($_SESSION['usuario'])): ?>
+    <?php if(!isset($_SESSION['erabiltzailea'])): ?>
         <a class="menuBotoia" href="login.php">Login</a>
     <?php else: ?>
         <a class="menuBotoia" href="logout.php">Logout</a>
