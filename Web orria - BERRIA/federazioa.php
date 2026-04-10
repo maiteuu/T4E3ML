@@ -20,12 +20,18 @@ include_once 'includes/functions.php';
     </section>
 
     <section class="w3-container w3-margin-bottom" style="max-width: 1200px; margin: 0 auto;">
-        <div class="w3-row-padding w3-margin-top">
-            <div class="w3-half">
-                <div class="w3-card-4 w3-round-large w3-padding-24 w3-center cardBisuala" style="height: 100%;">
-                    <i class="fa fa-microchip w3-margin-bottom" style="font-size:64px; color:#871521;"></i>
-                    <h3 style="font-weight: bold; color: #333;">Eraldaketa Digitala (IT/OT)</h3>
-                    <p class="w3-padding" style="text-align: left;">
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 20px;">
+            
+            <div class="w3-card-4 w3-round-large w3-padding-24 w3-center cardBisuala" style="display: flex; flex-direction: column; height: 100%;">
+                <i class="fa fa-microchip w3-margin-bottom" style="font-size:64px; color:#871521;"></i>
+                
+                <div style="height: 80px; display: flex; align-items: center; justify-content: center;">
+                    <h3 style="font-weight: bold; color: #333; margin: 0;">Eraldaketa Digitala (IT/OT)</h3>
+                </div>
+                
+                <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-start;">
+                    <p class="w3-padding" style="text-align: left; margin-bottom: 0;">
                         Prozesuen digitalizazio integrala martxan jarri dugu. Teknologia Gaitzaile Digitalak (THD) erabiliz, gure azpiegiturak konektatzen ditugu:
                     </p>
                     <ul style="text-align: left; padding-right: 20px;">
@@ -37,11 +43,15 @@ include_once 'includes/functions.php';
                 </div>
             </div>
 
-            <div class="w3-half">
-                <div class="w3-card-4 w3-round-large w3-padding-24 w3-center cardBisuala" style="height: 100%;">
-                    <i class="fa fa-leaf w3-margin-bottom" style="font-size:64px; color:#871521;"></i>
-                    <h3 style="font-weight: bold; color: #333;">Jasangarritasuna</h3>
-                    <p class="w3-padding" style="text-align: left;">
+            <div class="w3-card-4 w3-round-large w3-padding-24 w3-center cardBisuala" style="display: flex; flex-direction: column; height: 100%;">
+                <i class="fa fa-leaf w3-margin-bottom" style="font-size:64px; color:#871521;"></i>
+                
+                <div style="height: 80px; display: flex; align-items: center; justify-content: center;">
+                    <h3 style="font-weight: bold; color: #333; margin: 0;">Jasangarritasuna</h3>
+                </div>
+                
+                <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-start;">
+                    <p class="w3-padding" style="text-align: left; margin-bottom: 0;">
                         Eredu linealetik zirkularrerako jauzia egin dugu hondakinen sorrera ia erabat desagerrarazteko:
                     </p>
                     <ul style="text-align: left; padding-right: 20px;">
@@ -52,6 +62,7 @@ include_once 'includes/functions.php';
                     </ul>
                 </div>
             </div>
+            
         </div>
     </section>
 
