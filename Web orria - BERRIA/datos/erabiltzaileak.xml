@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<erabiltzaileak>
-    <erabiltzailea>
+<Erabiltzaileak>
+    <Erabiltzailea>
         <izena>admin</izena>
         <password>1234</password>
         <rol>admin</rol>
-    </erabiltzailea>
-    <erabiltzailea>
+    </Erabiltzailea>
+    <Erabiltzailea>
         <izena>periodista</izena>
         <password>1234</password>
         <rol>kazetari</rol>
-    </erabiltzailea>
-    <erabiltzailea>
+    </Erabiltzailea>
+    <Erabiltzailea>
         <izena>Markel</izena>
         <password>1234</password>
         <rol>jokalari</rol>
-    </erabiltzailea>
-    <erabiltzailea>
+    </Erabiltzailea>
+    <Erabiltzailea>
         <izena>oier</izena>
         <password>oier</password>
         <rol>kazetari</rol>
-    </erabiltzailea>
-</erabiltzaileak>
+    </Erabiltzailea>
+</Erabiltzaileak>
