@@ -7,7 +7,7 @@
             <div class="w3-card-4 w3-round-large w3-white"
                 style="overflow: hidden; border: 1px solid #ddd;">
 
-                <table class="w3-table w3-hoverable sailkapenaTabla" style="width: 100%;">
+                <table class="w3-table w3-hoverable sailkapenaTaula" style="width: 100%;">
                     <thead>
                         <tr
                             style="background-color: #871521; color: white; text-transform: uppercase; font-size: 0.9em;">
@@ -88,23 +88,23 @@
                         </xsl:for-each>
                     </tbody>
                 </table>
-                <div id="seccion-leyenda-unica">
-                    <div class="item-leyenda-seguro">
-                        <span class="punto-leyenda-seguro"
+                <div id="seccion-leienda-unica">
+                    <div class="item-leienda">
+                        <span class="puntu-leienda"
                             style="background-color: #fbc02d !important;">&#160;</span>
-                        <span class="texto-leyenda-seguro">Txapelduna</span>
+                        <span class="textu-leienda">Txapelduna</span>
                     </div>
 
-                    <div class="item-leyenda-seguro">
-                        <span class="punto-leyenda-seguro"
+                    <div class="item-leienda">
+                        <span class="puntu-leienda"
                             style="background-color: #2196f3 !important;">&#160;</span>
-                        <span class="texto-leyenda-seguro">Europako Kopa</span>
+                        <span class="textu-leienda">Europako Kopa</span>
                     </div>
 
-                    <div class="item-leyenda-seguro">
-                        <span class="punto-leyenda-seguro"
+                    <div class="item-leienda">
+                        <span class="puntu-leienda"
                             style="background-color: #f44336 !important;">&#160;</span>
-                        <span class="texto-leyenda-seguro">Jaitsiera</span>
+                        <span class="textu-leienda">Jaitsiera</span>
                     </div>
                 </div>
             </div>

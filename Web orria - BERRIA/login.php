@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['erabiltzailea'] = (string)$u->izena;
             $_SESSION['rol'] = (string)$u->rol;
             $encontrado = true;
-            header("Location: index.php"); // Redirigir a inicio
+            header("Location: index.php");
             exit();
         }
     }

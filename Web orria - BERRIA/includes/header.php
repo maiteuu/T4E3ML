@@ -23,6 +23,7 @@ $xml = cargarXML();
    <nav>
     <a class="menuBotoia" href="index.php">Hasiera</a>
     <a class="menuBotoia" href="taldeak.php">Taldeak</a>
+    <a class="menuBotoia" href="jardunaldiak.php">Jardunaldiak</a>
     <a class="menuBotoia" href="sailkapena.php">Sailkapena</a>
     <a class="menuBotoia" href="berriak.php">Berriak</a>
 
