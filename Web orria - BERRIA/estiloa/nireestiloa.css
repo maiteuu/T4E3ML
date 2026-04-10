@@ -588,7 +588,7 @@ th {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.textu-leienda {
+.texto-leienda {
     font-size: 12px;
     font-weight: bold;
     color: #444;
@@ -653,7 +653,7 @@ th {
         border: none !important;
         border-bottom: 1px solid #eee !important; 
         padding: 15px !important;
-        text-align: center !important; /* Centramos el textu en móvil */
+        text-align: center !important; /* Centramos el texto en móvil */
     }
 
     /* El último elemento de la tarjeta no necesita línea debajo */
@@ -946,14 +946,14 @@ th {
     transform: scale(1.05);
 }
 
-.textu-berria-grid {
+.texto-berria-grid {
     padding: 20px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
-.textu-berria-grid h3 {
+.texto-berria-grid h3 {
     color: #871521;
     font-size: 22px;
     font-weight: bold;
@@ -962,7 +962,7 @@ th {
     line-height: 1.2;
 }
 
-.deskribapena-textu {
+.deskribapena-texto {
     margin-top: 0;
     margin-bottom: 20px;
     color: #555;
