@@ -13,7 +13,7 @@
                         <img src="irudiak/berriak/{irudia}" alt="{tituloa}" />
                     </div>
 
-                    <div class="textu-berria-grid">
+                    <div class="texto-berria-grid">
                         <h3>
                             <xsl:value-of select="tituloa" />
                         </h3>

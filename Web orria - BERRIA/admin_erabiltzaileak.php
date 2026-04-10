@@ -12,9 +12,9 @@ if (isset($_GET['delete'])) {
     $izenaBorrar = $_GET['delete'];
     if ($izenaBorrar !== $_SESSION['erabiltzailea']) {
         $index = 0;
-        foreach ($erabiltzaileakXML->erabiltzailea as $u) {
+        foreach ($erabiltzaileakXML->Erabiltzailea as $u) {
             if ((string)$u->izena === $izenaBorrar) {
-                unset($erabiltzaileakXML->erabiltzailea[$index]);
+                unset($erabiltzaileakXML->Erabiltzailea[$index]);
                 break;
             }
             $index++;
@@ -33,13 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nomAntiguo = $_POST['izena_antiguo'];
 
     if ($mode === 'new') {
-        $nuevo = $erabiltzaileakXML->addChild('erabiltzailea');
+        $nuevo = $erabiltzaileakXML->addChild('Erabiltzailea');
         $nuevo->addChild('izena', $nomNuevo);
         $nuevo->addChild('password', $pass);
         $nuevo->addChild('rol', $rol);
     } else {
 
-        foreach ($erabiltzaileakXML->erabiltzailea as $u) {
+        foreach ($erabiltzaileakXML->Erabiltzailea as $u) {
             if ((string)$u->izena === $nomAntiguo) {
                 if ($nomAntiguo === $_SESSION['erabiltzailea']) {
                     $_SESSION['erabiltzailea'] = $nomNuevo;
@@ -77,7 +77,7 @@ include 'includes/header.php';
                 <th>Rola</th>
                 <th class="w3-center">Ekintzak</th>
             </tr>
-            <?php foreach ($erabiltzaileakXML->erabiltzailea as $u): 
+            <?php foreach ($erabiltzaileakXML->Erabiltzailea as $u): 
                 $esPropio = ((string)$u->izena === $_SESSION['erabiltzailea']);
             ?>
             <tr class="<?php echo $esPropio ? 'w3-pale-yellow' : ''; ?>">
