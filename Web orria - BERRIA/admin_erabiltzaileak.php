@@ -154,7 +154,7 @@ function editUser(nom, pass, rol, esPropio) {
     document.getElementById('formMode').value = 'edit';
     document.getElementById('formizenaAntiguo').value = nom; 
     document.getElementById('formizena').value = nom;
-    document.getElementById('formizena').readOnly = false; // Ahora sí se puede cambiar
+    document.getElementById('formizena').readOnly = false; 
     document.getElementById('formPass').value = pass;
     document.getElementById('formRol').value = rol;
 

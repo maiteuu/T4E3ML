@@ -1074,3 +1074,33 @@ th {
         width: 100%;
     }
 }
+
+/* LOGOA ETA TESTUA KOKATZEKO EDUKIONTZI BERRIA */
+.goiburuko-goikoa {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    position: relative;
+    width: 100%; /* Header osoa hartzeko */
+}
+
+/* TESTUA ESKUINEAN KOKATZEKO */
+.denboraldia-eskuina {
+    position: absolute;
+    right: 20px;
+    color: #871521;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+/* MUGIKORRETAN ONDO IKUSTEKO */
+@media (max-width: 850px) {
+    .goiburuko-goikoa {
+        flex-direction: column;
+        align-items: center;
+    }
+    .denboraldia-eskuina {
+        position: static;
+        margin-bottom: 10px;
+    }
+}

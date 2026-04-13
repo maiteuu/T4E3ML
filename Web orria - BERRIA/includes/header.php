@@ -16,29 +16,34 @@ $xml = cargarXML();
 <body>
 
 <header>    
-    <a id="hasieraLogo" href="index.php">
-        <img src="irudiak/FNFS Logo granate transparente.png" alt="Logo" class="logoa">
-    </a>
-    
-   <nav>
-    <a class="menuBotoia" href="index.php">Hasiera</a>
-    <a class="menuBotoia" href="taldeak.php">Taldeak</a>
-    <a class="menuBotoia" href="jardunaldiak.php">Jardunaldiak</a>
-    <a class="menuBotoia" href="sailkapena.php">Sailkapena</a>
-    <a class="menuBotoia" href="berriak.php">Berriak</a>
+    <div class="goiburuko-goikoa">
+        <a id="hasieraLogo" href="index.php" class="logo-zentratua">
+            <img src="irudiak/FNFS Logo granate transparente.png" alt="Logoa" class="logoa">
+        </a>
+        
+        <?php if (isset($_SESSION['denboraldia_id'])): ?>
+            <div class="denboraldia-eskuina">
+                <p><strong>Denboraldia:</strong> <?php echo htmlspecialchars($_SESSION['denboraldia_id']); ?></p>
+            </div>
+        <?php endif; ?>
+    </div>
 
-    <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] == 'jokalari'): ?>
-        <a class="menuBotoia" href="nire_panela.php">Nire Panela</a>
-    <?php endif; ?>
-    
-    <?php if(isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin'): ?>
-        <a class="menuBotoia" href="admin_erabiltzaileak.php">Erabiltzaileen Kudeaketa</a>
-    <?php endif; ?>
+    <nav>
+        <a class="menuBotoia" href="index.php">Hasiera</a>
+        <a class="menuBotoia" href="taldeak.php">Taldeak</a>
+        <a class="menuBotoia" href="jardunaldiak.php">Jardunaldiak</a>
+        <a class="menuBotoia" href="sailkapena.php">Sailkapena</a>
+        <a class="menuBotoia" href="berriak.php">Berriak</a>
 
-    <?php if(!isset($_SESSION['erabiltzailea'])): ?>
-        <a class="menuBotoia" href="login.php">Login</a>
-    <?php else: ?>
-        <a class="menuBotoia" href="logout.php">Logout</a>
-    <?php endif; ?>
-</nav>
+        <?php if(isset($_SESSION['rol'])): ?>
+            <?php if($_SESSION['rol'] == 'jokalari'): ?>
+                <a class="menuBotoia" href="nire_panela.php">Nire Panela</a>
+            <?php elseif($_SESSION['rol'] == 'admin'): ?>
+                <a class="menuBotoia" href="admin_erabiltzaileak.php">Kudeaketa</a>
+            <?php endif; ?>
+            <a class="menuBotoia" href="logout.php">Saioa itxi</a>
+        <?php else: ?>
+            <a class="menuBotoia" href="login.php">Saioa hasi</a>
+        <?php endif; ?>
+    </nav>
 </header>

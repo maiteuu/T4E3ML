@@ -1,5 +1,5 @@
 <?php
-// Es vital asegurar que la sesión esté iniciada antes de intentar acceder a $_SESSION
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
