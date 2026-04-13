@@ -56,10 +56,20 @@ include 'includes/header.php';
 
     $proc = new XSLTProcessor;
     $proc->importStyleSheet($xslDoc);
+    
+    // PASAMOS LA TEMPORADA AL XSLT
     $proc->setParameter('', 'p_denboraldia', $oraingoDenboraldia);
     
     echo $proc->transformToXML($xmlDoc);
     ?>
 </main>
+
+<style>
+/* Mantenemos solo el CSS para el efecto de entrada suave al recargar la página */
+@keyframes fadeEffect {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
 
 <?php include 'includes/footer.php'; ?>

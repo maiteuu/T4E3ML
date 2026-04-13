@@ -1,34 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html" encoding="UTF-8" indent="yes" />
+    
+    <xsl:param name="p_denboraldia" />
 
     <xsl:template match="/">
-        <div class="w3-container w3-center w3-padding-32">
-            <h2 style="color: #871521; font-weight:bold; text-transform:uppercase; letter-spacing:2px; text-shadow: 1px 1px 0 #ddd;">
-                Emaitzak eta Jardunaldiak
-            </h2>
-            <div class="w3-center">
-                <span style="display:inline-block; width: 80px; height: 4px; background-color: #871521; border-radius: 2px;"></span>
-            </div>
-        </div>
-
         <section class="w3-center w3-container" style="max-width: 1200px; margin: 0 auto; padding-bottom: 50px;">
 
-            <div class="w3-container w3-padding w3-center" style="margin-bottom: 40px;">
-                <select id="temporada-selector" class="w3-select w3-border w3-round" style="width: 250px; display:inline-block; font-size: 1.1em; font-weight: bold; color: #871521; padding: 10px 15px; cursor: pointer; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                    <xsl:for-each select="//Denboraldia">
-                        <xsl:sort select="@urtea" data-type="number" order="descending" />
-                        <option value="temp-{@urtea}">
-                            <xsl:value-of select="@urtea" /> / <xsl:value-of select="@urtea + 1" />
-                        </option>
-                    </xsl:for-each>
-                </select>
-            </div>
-
-            <div id="contenedor-jardunaldiak" style="width:100%">
-                <xsl:for-each select="//Denboraldia">
+            <div id="contenedor-jardunaldiak" style="width:100%; animation: fadeEffect 0.4s;">
+                
+                <xsl:for-each select="//Denboraldia[@urtea=$p_denboraldia]">
                     
-                    <div id="temp-{@urtea}" class="tabla-temporada" style="display:none; width: 100%;">
+                    <div id="temp-{@urtea}" class="tabla-temporada" style="width: 100%;">
 
                         <xsl:for-each select="Jardunaldiak/Jardunaldi">
                             <xsl:sort select="@zenbakia" data-type="number" order="ascending" />
