@@ -1,0 +1,1076 @@
+/* WEB-ORRI GUZTIAREN ATSEALDEAN */
+html,
+body {
+    background-color: #f9f4f1;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* HEADER-REN DAUDEN GAUZAK */
+
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    max-width: 100%;
+    align-self: center;
+}
+
+.logoa {
+    margin-top: 20px;
+    width: 200px;
+}
+
+
+nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    max-width: min-content;
+    background-color: #871521;
+    border-radius: 5px;
+    padding: 0 30px;
+    font-weight: bolder;
+
+}
+
+
+nav .menuBotoia {
+    color: #f9f4f1;
+    padding: 3px 40px;
+    transform: scale(1);
+    transition: all 0.2s ease;
+    display: inline-block;
+    text-decoration: none;
+    text-wrap-mode: nowrap;
+}
+
+nav .menuBotoia:hover a {
+    color: #871521;
+}
+
+nav .menuBotoia:hover {
+    background-color: #f9f4f1;
+    color: #871521;
+    transform: scale(1.10);
+}
+
+/* HASIERAN DAUDEN GAUZAK */
+.hasiera,
+.gaurkoBerriak {
+    align-self: center;
+    margin: 15px
+}
+
+
+.hasierakoTitulua {
+    color: #871521;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hasieraArtikulo {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    width: fit-content;
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+.hasieraArtikulo>div:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.partidarikOnena {
+    flex: 1;
+    margin: 10px;
+    border: solid 2px #871521;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: fit-content;
+    align-self: center;
+    padding-bottom: 40px;
+}
+
+.partidarikOnenaEmaitza {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #871521;
+    gap: 15px;
+    margin: 10px 0;
+    width: fit-content;
+}
+
+.partidarikOnenaEmaitza p {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.partidarikOnenaEmaitza a {
+    margin: 15px;
+}
+
+.partidarikOnenaEskutuak {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+}
+
+.partidarikOnenaUbi {
+    text-decoration: none;
+    color: #871521;
+    font-weight: bold;
+}
+
+.partidarikOnenaBideoa {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.gaurkoBerriak {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.gaurkoBerriakBakoitza {
+    color: #871521;
+    width: 100%;
+    margin: 0;
+}
+
+.taldeFlex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(20px, 5vw, 40px);
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.articleTaldeak {
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+
+/* Audioko kontrolen kolorea */
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-panel {
+    background-color: #f9f4f1;
+}
+
+
+.cardBisuala {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f9f4f1;
+
+
+}
+
+.cardBisuala h3 {
+    font-weight: bolder;
+    color: #871521;
+}
+
+.taldeaBotoia {
+    background-color: #871521;
+    color: #f9f4f1;
+}
+
+.eskutu-kontainer {
+    height: 130px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.eskutu-kontainer img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+footer {
+    display: flex;
+    background-color: #871521;
+    color: #f9f4f1;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.kontaktua {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    margin: 10px;
+}
+
+.kontaktua a {
+    text-decoration: none;
+}
+
+.links a.icono {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease, background-image 0.2s ease;
+}
+
+.links a.instagram {
+    background-image: url("../irudiak/InstaCrema.png");
+    border: #871521 solid 1px;
+    border-radius: 17px;
+}
+
+.links a.youtube {
+    background-image: url("../irudiak/YoutubeCrema.png");
+    border: #871521 solid 1px;
+    border-radius: 17px;
+}
+
+.links a.tiktok {
+    background-image: url("../irudiak/TikTokCrema.png");
+    border: #871521 solid 1px;
+    border-radius: 17px;
+}
+
+.links a.instagram:hover {
+    background-image: url("../irudiak/InstaCrema.png");
+    border: #871521 solid 1px;
+    border-radius: 17px;
+}
+
+.links a.youtube:hover {
+    background-image: url("../irudiak/YoutubeCrema.png");
+    border: #871521 solid 1px;
+    border-radius: 17px;
+}
+
+.links a.tiktok:hover {
+    background-image: url("../irudiak/TikTokCrema.png");
+    border: #871521 solid 1px;
+    border-radius: 17px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 10px;
+
+}
+
+.berriakMultzoa {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.berriakBakoitza {
+    margin: 15px 5px;
+    padding: 10px;
+}
+
+.jardunaldiakh2 {
+    color: #871521;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (min-width: 800px) {
+    nav {
+        max-width: max-content;
+        padding: 0px;
+        border-radius: 10px;
+        transition: all 0.2s ease;
+    }
+
+    .articleTaldeak {
+        flex: 0 0 calc(33.333% - 45px);
+        margin-bottom: 0;
+    }
+
+    .logoa {
+        width: 500px;
+
+    }
+
+    
+
+    .eskutu-kontainer {
+        height: 200px;
+    }
+
+    .kontaktua {
+        gap: 20px;
+    }
+
+    .hasieraArtikulo {
+        max-width: 95%;
+        width: 100%;
+        flex-wrap: nowrap;
+        width: fit-content;
+        gap: 20px;
+    }
+
+    .gaurkoBerriakMultzoa {
+        display: flex;
+        max-width: 1238.400px;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .partidarikOnenaEskutuak {
+        width: 100px;
+    }
+
+    .partidarikOnenaEmaitza p {
+        font-size: 3.5rem;
+    }
+
+    .partidarikOnena {
+        margin: 10px;
+        padding: 15px 15px 40px 15px;
+    }
+
+    .berriakBakoitza {
+        width: 28%;
+    }
+
+    .links a.icono {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: transform 0.3s ease, background-image 0.2s ease;
+    }
+
+    .links a.instagram {
+        background-image: url("../irudiak/Instagramgranate.png");
+        border: #f9f4f1 solid 1px;
+        border-radius: 17px;
+    }
+
+    .links a.youtube {
+        background-image: url("../irudiak/Youtubegranate.png");
+        border: #f9f4f1 solid 1px;
+        border-radius: 17px;
+    }
+
+    .links a.tiktok {
+        background-image: url("../irudiak/TiktokGranate.png");
+        border: #f9f4f1 solid 1px;
+        border-radius: 17px;
+    }
+
+    .links {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 10px;
+        padding: 5px;
+    }
+
+    footer {
+        justify-content: space-between;
+    }
+}
+
+.Sailkapena {
+    display: flex;
+    flex-direction: column;
+    color: #871521;
+    width: 90%;
+    align-self: center;
+    margin: 20%;
+    margin: 2cqmax;
+}
+
+.Sailkapena h2 {
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+.Sailkapena img {
+    width: 60%;
+    margin-right: 40%;
+    max-width: 250px;
+}
+
+.sailkapenaTaula {
+    font-size: 150%;
+    border-collapse: collapse;
+    width: 80%;
+    font-family: Arial;
+    align-self: center;
+}
+
+.sailkapenaTaula th:nth-child(1),
+.sailkapenaTaula td:nth-child(1) {
+    width: 1%;
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+.sailkapenaTaula th:nth-child(2),
+.sailkapenaTaula td:nth-child(2) {
+    width: 70%;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.sailkapenaTaula th,
+.sailkapenaTaula td {
+    text-align: center;
+}
+
+.sailkapenaTaula thead {
+    font-weight: bold;
+    border-bottom: #871521 solid 3px;
+    text-align: center;
+    font-size: 80%;
+    width: 100%;
+}
+
+
+
+.sailkapenaTaula tr {
+    border-bottom: #868283 solid 1px;
+    text-align: center;
+    justify-content: center;
+    font-size: 80%;
+}
+
+
+
+.posisioa {
+    font-weight: bold;
+}
+
+.posisioa h1 {
+    text-align: center;
+    width: 80%;
+}
+
+.sailkapen_talde {
+    display: flex;
+    flex-direction: column;
+    font-size: 80%;
+}
+
+
+.menuBotoia a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.orri-titulua-container {
+    text-align: center;
+    width: 100%;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.orri-titulua {
+    color: #871521;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 0 #ddd;
+    margin: 0 0 10px 0 !important;
+}
+
+.orri-marra {
+    display: inline-block;
+    width: 80px;
+    height: 4px;
+    background-color: #871521;
+    border-radius: 2px;
+}
+
+.jokalariArgazkia {
+    width: 35px;
+}
+
+.taldeenTaula td,
+th {
+    vertical-align: middle;
+}
+
+
+#seccion-leienda-unica {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 25px;
+    padding: 20px 10px;
+    background: #fff;
+    border-top: 1px solid #eee;
+    width: 100%;
+
+}
+
+.item-leienda {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    justify-content: center;
+}
+
+.puntu-leienda {
+    flex-shrink: 0;
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.texto-leienda {
+    font-size: 12px;
+    font-weight: bold;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.container-tabla-movil {
+    width: 95%;
+    max-width: 750px;
+    margin: 20px auto;
+}
+
+.sailkapenaTaula {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    background-color: white;
+    font-family: sans-serif;
+}
+
+.sailkapenaTaula img {
+    width: 30px !important;
+    height: 30px !important;
+    object-fit: contain;
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .w3-responsive {
+        overflow-x: visible !important;
+    }
+
+    /* Obligamos a todos los elementos de la tabla a comportarse como bloques (apilados) */
+    .tabla-plan, 
+    .tabla-plan thead, 
+    .tabla-plan tbody, 
+    .tabla-plan th, 
+    .tabla-plan td, 
+    .tabla-plan tr { 
+        display: block; 
+        width: 100%;
+    }
+
+    /* Ocultamos los encabezados de arriba (Eguna, Goiza, Arratsaldea...) porque ya no tienen sentido */
+    .tabla-plan thead { 
+        display: none;
+    }
+
+    /* Cada fila (<tr>) ahora es una tarjeta independiente */
+    .tabla-plan tr {
+        margin-bottom: 25px;
+        border: 2px solid #871521 !important; /* Borde granate */
+        border-radius: 12px;
+        overflow: hidden; /* Mantiene las esquinas redondeadas */
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        background-color: #fff;
+    }
+
+    /* Quitamos los bordes internos gruesos y dejamos líneas separadoras finas */
+    .tabla-plan td { 
+        border: none !important;
+        border-bottom: 1px solid #eee !important; 
+        padding: 15px !important;
+        text-align: center !important; /* Centramos el texto en móvil */
+    }
+
+    /* El último elemento de la tarjeta no necesita línea debajo */
+    .tabla-plan td:last-child {
+        border-bottom: none !important;
+    }
+
+    /* Convertimos la celda del "Día" (Astelehena, Asteartea...) en la CABECERA de la tarjeta */
+    .tabla-plan .col-eguna {
+        background-color: #871521 !important;
+        color: white !important;
+        font-size: 1.3em;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 12px !important;
+    }
+
+    /* --- AJUSTES ESPECIALES PARA EL DÍA DE PARTIDO EN MÓVIL --- */
+    .fila-partidu-ofiziala {
+        border-color: #fbc02d !important; /* Borde dorado */
+        box-shadow: 0 5px 15px rgba(251, 192, 45, 0.3);
+    }
+    
+    .fila-partidu-ofiziala .col-eguna {
+        background-color: #fbc02d !important; /* Cabecera dorada */
+        color: #000 !important;
+    }
+
+    .container-tabla-movil {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .sailkapenaTaula {
+        font-size: 13px !important;
+    }
+
+    .sailkapenaTaula th:nth-of-type(4), 
+    .sailkapenaTaula td:nth-of-type(4),
+    .sailkapenaTaula th:nth-of-type(5), 
+    .sailkapenaTaula td:nth-of-type(5),
+    .sailkapenaTaula th:nth-of-type(6), 
+    .sailkapenaTaula td:nth-of-type(6) {
+        display: none !important;
+    }
+
+    .sailkapenaTaula th, 
+    .sailkapenaTaula td {
+        padding: 10px 4px !important;
+    }
+
+    .sailkapenaTaula img {
+        width: 22px !important;
+        height: 22px !important;
+    }
+
+
+    #seccion-leienda-unica {
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+        justify-content: center !important;
+    }
+    
+    .item-leienda {
+        flex: 0 0 45%;
+        font-size: 11px !important;
+    }
+
+    .sailkapenaTaula th:nth-of-type(1), 
+    .sailkapenaTaula td:nth-of-type(1) {
+        width: 25px !important;
+        font-size: 0.9em;
+    }
+
+    .sailkapenaTaula th:nth-of-type(2), 
+    .sailkapenaTaula td:nth-of-type(2) {
+        width: auto !important; 
+    }
+
+
+    .sailkapenaTaula th:nth-of-type(3) {
+        width: 35px !important;
+        color: white !important;
+        font-weight: normal !important;
+        text-align: center !important;
+    }
+
+        .sailkapenaTaula td:nth-of-type(3) {
+        width: 35px !important;
+        color: grey !important; 
+        font-weight: normal !important;
+        text-align: center !important;
+    }
+
+
+
+    .sailkapenaTaula th:nth-of-type(7), 
+    .sailkapenaTaula td:nth-of-type(7) {
+        width: 45px !important;
+        font-size: 1.1em !important; 
+        background-color: rgba(135, 21, 33, 0.05);
+    }
+
+
+    .sailkapenaTaula td:nth-of-type(2) a {
+        white-space: normal !important;
+        line-height: 1.2;
+        font-size: 12px !important;
+    }
+
+      .taldeenTaula thead {
+    display: none;
+  }
+ 
+  .taldeenTaula tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+
+  .taldeenTaula td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    border-bottom: 1px solid #eee;
+    padding: 10px 15px !important;
+  }
+  
+  .taldeenTaula td:last-child {
+    border-bottom: none;
+  }
+  
+
+  .taldeenTaula td::before {
+    font-weight: bold;
+    color: #871521;
+  }
+  
+  .taldeenTaula td:nth-child(1)::before { content: "Argazkia:"; }
+  .taldeenTaula td:nth-child(2)::before { content: "Dortsala:"; }
+  .taldeenTaula td:nth-child(3)::before { content: "Izena:"; }
+  .taldeenTaula td:nth-child(4)::before { content: "Posizioa:"; }
+
+}
+
+.w3-card-4 header h3 {
+    margin: 15px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.w3-ul li {
+    border-bottom: 1px solid #eee !important;
+}
+
+.w3-ul li:last-child {
+    border-bottom: 0 !important;
+}
+
+.tabla-plan {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid #999 !important; 
+}
+
+.tabla-plan th, .tabla-plan td {
+    border: 1px solid #bbb !important; 
+    padding: 12px;
+}
+
+.tabla-plan th {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.col-eguna {
+    background-color: #e0e0e0;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+    width: 110px;
+    vertical-align: middle !important;
+    border-right: 2px solid #999 !important; 
+}
+
+.label-mota {
+    font-weight: bold;
+    font-size: 0.75em;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.label-gym { color: #0D47A1; } 
+.label-pista { color: #B71C1C; } 
+
+.label-dieta { 
+    color: #004D40; 
+    border-bottom: 1px solid #ccc; 
+    margin-bottom: 5px; 
+    font-style: italic; 
+    padding-bottom: 2px;
+}
+
+.txt-grande {
+    font-size: 1.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.color-atseden { color: #757575; } 
+.color-partidu { color: #871521; } 
+
+.fila-partidu-ofiziala {
+    background-color: #fff176 !important;
+}
+
+.fila-partidu-ofiziala td {
+    border-top: 2px solid #fbc02d !important;
+    border-bottom: 2px solid #fbc02d !important;
+}
+
+.fila-partidu-ofiziala .col-eguna {
+    background-color: #fdd835 !important;
+    color: #000;
+}
+
+.selector-semana-container {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.selector-card {
+    display: inline-block;
+    border: 2px solid #871521;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.sare-berriak {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 30px; 
+    padding: 20px;
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.tarjeta-berria-grid {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #eaeaea;
+}
+
+.tarjeta-berria-grid:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(135, 21, 33, 0.15); 
+}
+
+.imagen-berria-grid {
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+}
+
+.imagen-berria-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tarjeta-berria-grid:hover .imagen-berria-grid img {
+    transform: scale(1.05);
+}
+
+.texto-berria-grid {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.texto-berria-grid h3 {
+    color: #871521;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.deskribapena-texto {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.5;
+    
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.botoi-kaxa {
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.contenedor-panela {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* --- ASTE MOTAREN HAUTATZAILEAREN ESTILOAK --- */
+
+.selector-astea-container {
+    margin-bottom: 30px; /* Beheko taulatik ondo banantzeko marjina */
+    display: flex;
+    justify-content: center; /* Bloke osoa erdiratzen dugu */
+}
+
+.selector-form {
+    background-color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 50px; /* Ertz oso biribilduak, pilula itxurakoak */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Itzal leuna */
+    display: inline-flex;
+    align-items: center;
+    gap: 15px; /* Testuaren eta hedagarriaren arteko tartea */
+    border: 1px solid #eaeaea;
+}
+
+.selector-label {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+    margin: 0;
+}
+
+.selector-label i {
+    color: #871521; /* Klubaren kolore granateko ikonoa */
+    margin-right: 5px;
+}
+
+/* <select>-aren gezia pertsonalizatzeko bilgailua (wrapper) */
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.selector-desplegable {
+    appearance: none; /* Nabigatzailearen berezko estilo itsusia kentzen dugu */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #871521; /* Testu granatea */
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Saguarekin gainetik pasatzean edo klik egitean */
+.selector-desplegable:hover, 
+.selector-desplegable:focus {
+    border-color: #871521;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(135, 21, 33, 0.1);
+}
+
+/* Gure gezi-ikono pertsonalizatua */
+.select-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #871521;
+    pointer-events: none; /* Klikak ikonotik zehar select-era iristeko */
+    font-size: 12px;
+}
+
+/* Pantaila txfikietarako egokitzapena (mugikorrak) */
+@media screen and (max-width: 600px) {
+    .selector-form {
+        flex-direction: column; /* Testua eta hautatzailea pilatzen ditugu mugikorrean */
+        width: 100%;
+        border-radius: 12px; /* Biribiltzea murrizten dugu mugikorrean */
+        padding: 20px;
+        gap: 10px;
+    }
+    
+    .select-wrapper, 
+    .selector-desplegable {
+        width: 100%;
+    }
+}
