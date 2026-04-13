@@ -37,3 +37,4 @@ if (validarXML($xmlRuta, $xsdRuta)) {
 echo '</main>';
 include 'includes/footer.php';
 ?>
+

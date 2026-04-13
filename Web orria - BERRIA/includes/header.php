@@ -12,6 +12,15 @@ $xml = cargarXML();
     <link rel="stylesheet" href="estiloa/w3.css">
     <link rel="stylesheet" href="estiloa/nireestiloa.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    <?php 
+        if (isset($pageTitle)) {
+            echo $pageTitle . " - LNFS";
+        } else {
+            echo "LNFS";
+        }
+    ?>
+</title>
 </head>
 <body>
 

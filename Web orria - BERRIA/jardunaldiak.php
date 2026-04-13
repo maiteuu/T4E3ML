@@ -63,13 +63,4 @@ include 'includes/header.php';
     echo $proc->transformToXML($xmlDoc);
     ?>
 </main>
-
-<style>
-/* Mantenemos solo el CSS para el efecto de entrada suave al recargar la página */
-@keyframes fadeEffect {
-    from {opacity: 0; transform: translateY(10px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-</style>
-
 <?php include 'includes/footer.php'; ?>
