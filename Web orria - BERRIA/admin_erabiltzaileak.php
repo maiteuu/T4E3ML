@@ -6,7 +6,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'admin') {
     exit();
 }
 
-$xmlPath = 'datos/erabiltzaileak.xml';
+$xmlPath = 'xml/erabiltzaileak.xml';
 $erabiltzaileakXML = simplexml_load_file($xmlPath);
 if (isset($_GET['delete'])) {
     $izenaBorrar = $_GET['delete'];

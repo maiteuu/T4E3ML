@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $passIn = $_POST['pass'];
 
     // Cargar usuarios desde el XML
-    $usuariosXML = simplexml_load_file('datos/erabiltzaileak.xml');
+    $usuariosXML = simplexml_load_file('xml/erabiltzaileak.xml');
     $encontrado = false;
 
     foreach ($usuariosXML->Erabiltzailea as $u) {

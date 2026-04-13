@@ -128,4 +128,15 @@ function cargarXML() {
         die("Error: No se encuentra el archivo xml/federazioa.xml. Revisa la carpeta.");
     }
 }
+
+function lortuAzkenDenboraldia() {
+    $xml = cargarXML();
+    $azkena = "";
+    if (isset($xml->Denboraldiak->Denboraldia)) {
+        foreach ($xml->Denboraldiak->Denboraldia as $denb) {
+            $azkena = (string)$denb['urtea'];
+        }
+    }
+    return $azkena;
+}
 ?>
