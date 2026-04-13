@@ -70,8 +70,8 @@ include 'includes/header.php';
     </div>
 
     <div class="w3-responsive w3-card-4 w3-white w3-round-large" style="max-width: 900px; margin: auto;">
-        <table class="w3-table w3-striped w3-hoverable">
-            <tr style="background-color: #871521; color: white;">
+        <table class="w3-table w3-striped w3-hoverable w3-table-centered" >
+            <tr style="background-color: #871521; color: white;" >
                 <th>Erabiltzailea</th>
                 <th>Pasahitza</th>
                 <th>Rola</th>
@@ -80,14 +80,14 @@ include 'includes/header.php';
             <?php foreach ($erabiltzaileakXML->Erabiltzailea as $u): 
                 $esPropio = ((string)$u->izena === $_SESSION['erabiltzailea']);
             ?>
-            <tr class="<?php echo $esPropio ? 'w3-pale-yellow' : ''; ?>">
+            <tr class="<?php echo $esPropio ? 'w3-pale-yellow' : ''; ?>" >
                 <td>
                     <strong><?php echo htmlspecialchars($u->izena); ?></strong>
                     <?php if($esPropio) echo ' <span class="w3-tag w3-round w3-amber w3-small">NI</span>'; ?>
                 </td>
                 <td>••••••••</td>
-                <td><span class="w3-tag w3-round w3-blue-grey w3-small"><?php echo strtoupper($u->rol); ?></span></td>
-                <td class="w3-center">
+                <td><span class="w3-tag w3-round w3-blue-grey w3-small" ><?php echo strtoupper($u->rol); ?></span></td>
+                <td class="w3-center" >
                     <button onclick="editUser('<?php echo $u->izena; ?>', '<?php echo $u->password; ?>', '<?php echo $u->rol; ?>', <?php echo $esPropio ? 'true' : 'false'; ?>)" 
                             class="w3-button w3-small w3-teal w3-round">Editatu</button>
                     

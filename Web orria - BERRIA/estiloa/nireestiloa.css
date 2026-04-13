@@ -353,7 +353,7 @@ footer {
 
     }
 
-    
+
 
     .eskutu-kontainer {
         height: 200px;
@@ -623,37 +623,40 @@ th {
     }
 
     /* Obligamos a todos los elementos de la tabla a comportarse como bloques (apilados) */
-    .tabla-plan, 
-    .tabla-plan thead, 
-    .tabla-plan tbody, 
-    .tabla-plan th, 
-    .tabla-plan td, 
-    .tabla-plan tr { 
-        display: block; 
+    .tabla-plan,
+    .tabla-plan thead,
+    .tabla-plan tbody,
+    .tabla-plan th,
+    .tabla-plan td,
+    .tabla-plan tr {
+        display: block;
         width: 100%;
     }
 
     /* Ocultamos los encabezados de arriba (Eguna, Goiza, Arratsaldea...) porque ya no tienen sentido */
-    .tabla-plan thead { 
+    .tabla-plan thead {
         display: none;
     }
 
     /* Cada fila (<tr>) ahora es una tarjeta independiente */
     .tabla-plan tr {
         margin-bottom: 25px;
-        border: 2px solid #871521 !important; /* Borde granate */
+        border: 2px solid #871521 !important;
+        /* Borde granate */
         border-radius: 12px;
-        overflow: hidden; /* Mantiene las esquinas redondeadas */
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        overflow: hidden;
+        /* Mantiene las esquinas redondeadas */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         background-color: #fff;
     }
 
     /* Quitamos los bordes internos gruesos y dejamos líneas separadoras finas */
-    .tabla-plan td { 
+    .tabla-plan td {
         border: none !important;
-        border-bottom: 1px solid #eee !important; 
+        border-bottom: 1px solid #eee !important;
         padding: 15px !important;
-        text-align: center !important; /* Centramos el texto en móvil */
+        text-align: center !important;
+        /* Centramos el texto en móvil */
     }
 
     /* El último elemento de la tarjeta no necesita línea debajo */
@@ -674,12 +677,14 @@ th {
 
     /* --- AJUSTES ESPECIALES PARA EL DÍA DE PARTIDO EN MÓVIL --- */
     .fila-partidu-ofiziala {
-        border-color: #fbc02d !important; /* Borde dorado */
+        border-color: #fbc02d !important;
+        /* Borde dorado */
         box-shadow: 0 5px 15px rgba(251, 192, 45, 0.3);
     }
-    
+
     .fila-partidu-ofiziala .col-eguna {
-        background-color: #fbc02d !important; /* Cabecera dorada */
+        background-color: #fbc02d !important;
+        /* Cabecera dorada */
         color: #000 !important;
     }
 
@@ -693,16 +698,16 @@ th {
         font-size: 13px !important;
     }
 
-    .sailkapenaTaula th:nth-of-type(4), 
+    .sailkapenaTaula th:nth-of-type(4),
     .sailkapenaTaula td:nth-of-type(4),
-    .sailkapenaTaula th:nth-of-type(5), 
+    .sailkapenaTaula th:nth-of-type(5),
     .sailkapenaTaula td:nth-of-type(5),
-    .sailkapenaTaula th:nth-of-type(6), 
+    .sailkapenaTaula th:nth-of-type(6),
     .sailkapenaTaula td:nth-of-type(6) {
         display: none !important;
     }
 
-    .sailkapenaTaula th, 
+    .sailkapenaTaula th,
     .sailkapenaTaula td {
         padding: 10px 4px !important;
     }
@@ -718,21 +723,21 @@ th {
         gap: 10px !important;
         justify-content: center !important;
     }
-    
+
     .item-leienda {
         flex: 0 0 45%;
         font-size: 11px !important;
     }
 
-    .sailkapenaTaula th:nth-of-type(1), 
+    .sailkapenaTaula th:nth-of-type(1),
     .sailkapenaTaula td:nth-of-type(1) {
         width: 25px !important;
         font-size: 0.9em;
     }
 
-    .sailkapenaTaula th:nth-of-type(2), 
+    .sailkapenaTaula th:nth-of-type(2),
     .sailkapenaTaula td:nth-of-type(2) {
-        width: auto !important; 
+        width: auto !important;
     }
 
 
@@ -743,19 +748,19 @@ th {
         text-align: center !important;
     }
 
-        .sailkapenaTaula td:nth-of-type(3) {
+    .sailkapenaTaula td:nth-of-type(3) {
         width: 35px !important;
-        color: grey !important; 
+        color: grey !important;
         font-weight: normal !important;
         text-align: center !important;
     }
 
 
 
-    .sailkapenaTaula th:nth-of-type(7), 
+    .sailkapenaTaula th:nth-of-type(7),
     .sailkapenaTaula td:nth-of-type(7) {
         width: 45px !important;
-        font-size: 1.1em !important; 
+        font-size: 1.1em !important;
         background-color: rgba(135, 21, 33, 0.05);
     }
 
@@ -766,42 +771,53 @@ th {
         font-size: 12px !important;
     }
 
-      .taldeenTaula thead {
-    display: none;
-  }
- 
-  .taldeenTaula tr {
-    display: block;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-  }
-  
+    .taldeenTaula thead {
+        display: none;
+    }
 
-  .taldeenTaula td {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: right;
-    border-bottom: 1px solid #eee;
-    padding: 10px 15px !important;
-  }
-  
-  .taldeenTaula td:last-child {
-    border-bottom: none;
-  }
-  
+    .taldeenTaula tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+    }
 
-  .taldeenTaula td::before {
-    font-weight: bold;
-    color: #871521;
-  }
-  
-  .taldeenTaula td:nth-child(1)::before { content: "Argazkia:"; }
-  .taldeenTaula td:nth-child(2)::before { content: "Dortsala:"; }
-  .taldeenTaula td:nth-child(3)::before { content: "Izena:"; }
-  .taldeenTaula td:nth-child(4)::before { content: "Posizioa:"; }
+
+    .taldeenTaula td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+        border-bottom: 1px solid #eee;
+        padding: 10px 15px !important;
+    }
+
+    .taldeenTaula td:last-child {
+        border-bottom: none;
+    }
+
+
+    .taldeenTaula td::before {
+        font-weight: bold;
+        color: #871521;
+    }
+
+    .taldeenTaula td:nth-child(1)::before {
+        content: "Argazkia:";
+    }
+
+    .taldeenTaula td:nth-child(2)::before {
+        content: "Dortsala:";
+    }
+
+    .taldeenTaula td:nth-child(3)::before {
+        content: "Izena:";
+    }
+
+    .taldeenTaula td:nth-child(4)::before {
+        content: "Posizioa:";
+    }
 
 }
 
@@ -822,11 +838,12 @@ th {
 .tabla-plan {
     border-collapse: collapse;
     width: 100%;
-    border: 2px solid #999 !important; 
+    border: 2px solid #999 !important;
 }
 
-.tabla-plan th, .tabla-plan td {
-    border: 1px solid #bbb !important; 
+.tabla-plan th,
+.tabla-plan td {
+    border: 1px solid #bbb !important;
     padding: 12px;
 }
 
@@ -843,7 +860,7 @@ th {
     text-align: center;
     width: 110px;
     vertical-align: middle !important;
-    border-right: 2px solid #999 !important; 
+    border-right: 2px solid #999 !important;
 }
 
 .label-mota {
@@ -855,14 +872,19 @@ th {
     letter-spacing: 0.5px;
 }
 
-.label-gym { color: #0D47A1; } 
-.label-pista { color: #B71C1C; } 
+.label-gym {
+    color: #0D47A1;
+}
 
-.label-dieta { 
-    color: #004D40; 
-    border-bottom: 1px solid #ccc; 
-    margin-bottom: 5px; 
-    font-style: italic; 
+.label-pista {
+    color: #B71C1C;
+}
+
+.label-dieta {
+    color: #004D40;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
+    font-style: italic;
     padding-bottom: 2px;
 }
 
@@ -875,8 +897,13 @@ th {
     padding: 10px 0;
 }
 
-.color-atseden { color: #757575; } 
-.color-partidu { color: #871521; } 
+.color-atseden {
+    color: #757575;
+}
+
+.color-partidu {
+    color: #871521;
+}
 
 .fila-partidu-ofiziala {
     background-color: #fff176 !important;
@@ -901,23 +928,23 @@ th {
     display: inline-block;
     border: 2px solid #871521;
     background-color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .sare-berriak {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-    gap: 30px; 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
     padding: 20px;
-    max-width: 1200px; 
-    margin: 0 auto; 
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .tarjeta-berria-grid {
     background-color: #ffffff;
     border-radius: 12px;
-    overflow: hidden; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -925,13 +952,13 @@ th {
 }
 
 .tarjeta-berria-grid:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 10px 20px rgba(135, 21, 33, 0.15); 
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(135, 21, 33, 0.15);
 }
 
 .imagen-berria-grid {
     width: 100%;
-    height: 200px; 
+    height: 200px;
     overflow: hidden;
 }
 
@@ -967,9 +994,9 @@ th {
     margin-bottom: 20px;
     color: #555;
     line-height: 1.5;
-    
+
     display: -webkit-box;
-    -webkit-line-clamp: 3; 
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -981,8 +1008,8 @@ th {
 }
 
 .contenedor-panela {
-    max-width: 1200px; 
-    margin: 0 auto; 
+    max-width: 1200px;
+    margin: 0 auto;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -990,19 +1017,24 @@ th {
 /* --- ASTE MOTAREN HAUTATZAILEAREN ESTILOAK --- */
 
 .selector-astea-container {
-    margin-bottom: 30px; /* Beheko taulatik ondo banantzeko marjina */
+    margin-bottom: 30px;
+    /* Beheko taulatik ondo banantzeko marjina */
     display: flex;
-    justify-content: center; /* Bloke osoa erdiratzen dugu */
+    justify-content: center;
+    /* Bloke osoa erdiratzen dugu */
 }
 
 .selector-form {
     background-color: #ffffff;
     padding: 15px 25px;
-    border-radius: 50px; /* Ertz oso biribilduak, pilula itxurakoak */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Itzal leuna */
+    border-radius: 50px;
+    /* Ertz oso biribilduak, pilula itxurakoak */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    /* Itzal leuna */
     display: inline-flex;
     align-items: center;
-    gap: 15px; /* Testuaren eta hedagarriaren arteko tartea */
+    gap: 15px;
+    /* Testuaren eta hedagarriaren arteko tartea */
     border: 1px solid #eaeaea;
 }
 
@@ -1014,7 +1046,8 @@ th {
 }
 
 .selector-label i {
-    color: #871521; /* Klubaren kolore granateko ikonoa */
+    color: #871521;
+    /* Klubaren kolore granateko ikonoa */
     margin-right: 5px;
 }
 
@@ -1025,7 +1058,8 @@ th {
 }
 
 .selector-desplegable {
-    appearance: none; /* Nabigatzailearen berezko estilo itsusia kentzen dugu */
+    appearance: none;
+    /* Nabigatzailearen berezko estilo itsusia kentzen dugu */
     -webkit-appearance: none;
     -moz-appearance: none;
     background-color: #f9f9f9;
@@ -1034,14 +1068,15 @@ th {
     padding: 10px 20px;
     font-size: 15px;
     font-weight: bold;
-    color: #871521; /* Testu granatea */
+    color: #871521;
+    /* Testu granatea */
     cursor: pointer;
     outline: none;
     transition: all 0.3s ease;
 }
 
 /* Saguarekin gainetik pasatzean edo klik egitean */
-.selector-desplegable:hover, 
+.selector-desplegable:hover,
 .selector-desplegable:focus {
     border-color: #871521;
     background-color: #fff;
@@ -1055,21 +1090,24 @@ th {
     top: 50%;
     transform: translateY(-50%);
     color: #871521;
-    pointer-events: none; /* Klikak ikonotik zehar select-era iristeko */
+    pointer-events: none;
+    /* Klikak ikonotik zehar select-era iristeko */
     font-size: 12px;
 }
 
 /* Pantaila txfikietarako egokitzapena (mugikorrak) */
 @media screen and (max-width: 600px) {
     .selector-form {
-        flex-direction: column; /* Testua eta hautatzailea pilatzen ditugu mugikorrean */
+        flex-direction: column;
+        /* Testua eta hautatzailea pilatzen ditugu mugikorrean */
         width: 100%;
-        border-radius: 12px; /* Biribiltzea murrizten dugu mugikorrean */
+        border-radius: 12px;
+        /* Biribiltzea murrizten dugu mugikorrean */
         padding: 20px;
         gap: 10px;
     }
-    
-    .select-wrapper, 
+
+    .select-wrapper,
     .selector-desplegable {
         width: 100%;
     }
@@ -1081,7 +1119,8 @@ th {
     justify-content: center;
     align-items: end;
     position: relative;
-    width: 100%; /* Header osoa hartzeko */
+    width: 100%;
+    /* Header osoa hartzeko */
 }
 
 /* TESTUA ESKUINEAN KOKATZEKO */
@@ -1099,8 +1138,39 @@ th {
         flex-direction: column;
         align-items: center;
     }
+
     .denboraldia-eskuina {
         position: static;
         margin-bottom: 10px;
     }
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
+.info-sesion {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.kontaktua {
+    flex: 0 1 auto;
+    text-align: center;
+}
+
+.links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.w3-table-centered th,
+.w3-table-centered td {
+    vertical-align: middle;
 }

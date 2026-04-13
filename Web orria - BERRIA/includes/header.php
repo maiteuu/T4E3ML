@@ -23,7 +23,7 @@ $xml = cargarXML();
         
         <?php if (isset($_SESSION['denboraldia_id'])): ?>
             <div class="denboraldia-eskuina">
-                <p><strong>Denboraldia:</strong> <?php echo htmlspecialchars($_SESSION['denboraldia_id']); ?></p>
+                <p style="margin: 0"><strong>Denboraldia:</strong> <?php echo htmlspecialchars($_SESSION['denboraldia_id']); ?></p>
             </div>
         <?php endif; ?>
     </div>
