@@ -3,6 +3,7 @@ session_start();
 $pageTitle = "Berria";
 include 'includes/header.php';
 
+// Titulua ez badago, errorea erakutsi
 if (!isset($_GET['titulua'])) {
     echo "<main class='w3-container'><h3 class='w3-center w3-text-red'>Errorea: Berria ez da aurkitu.</h3></main>";
     include 'includes/footer.php';
@@ -19,22 +20,20 @@ foreach ($berriakXML->berria as $b) {
         break;
     }
 }
-
 ?>
 
 <main class="w3-container w3-content" style="max-width:800px; padding: 40px 16px;">
     <?php if ($berria): ?>
-        
         <div class="w3-card-4 w3-white w3-round-large" style="overflow:hidden;">
-            <img src="media/irudiak/berriak/<?php echo htmlspecialchars($berria->irudia); ?>" 
-                 alt="<?php echo htmlspecialchars($berria->tituloa); ?>" 
+            <img src="media/irudiak/berriak/<?php echo htmlspecialchars($berria->irudia); ?>"
+                 alt="<?php echo htmlspecialchars($berria->tituloa); ?>"
                  style="width:100%; max-height: 400px; object-fit: cover;">
-            
+
             <div class="w3-container w3-padding-32">
-                <h1  style="font-weight: bold; margin-bottom: 20px; color: #871521;" >
+                <h1 style="font-weight: bold; margin-bottom: 20px; color: #871521;">
                     <?php echo htmlspecialchars($berria->tituloa); ?>
                 </h1>
-                
+
                 <p style="font-size: 1.1em; line-height: 1.6; text-align: justify;">
                     <?php echo nl2br(htmlspecialchars($berria->deskribapena)); ?>
                 </p>
@@ -47,7 +46,6 @@ foreach ($berriakXML->berria as $b) {
                 </div>
             </div>
         </div>
-
     <?php else: ?>
         <h3 class="w3-center w3-text-red">Barkatu, ez dugu albiste hori aurkitu.</h3>
         <div class="w3-center">

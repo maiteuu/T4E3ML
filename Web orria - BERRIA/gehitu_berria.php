@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// SEGURTASUN KONTROLA: Bakarrik kazetariak
+// Kazetariak bakarrik sar daitezke
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'kazetari') {
     header("Location: index.php");
     exit();
@@ -10,25 +10,23 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'kazetari') {
 require_once 'includes/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $tituloa     = $_POST['tituloa'];
     $deskribapena = $_POST['deskribapena'];
-    $esteka = $_POST['esteka'];
-    $irudiaNom = $_FILES['irudia']['name'];
+    $esteka      = $_POST['esteka'];
+    $irudiaNom   = $_FILES['irudia']['name'];
 
-    // Irudia kargatzen dugu
-    $target_dir = "media/irudiak/berriak/";
+    $target_dir  = "media/irudiak/berriak/";
     $target_file = $target_dir . basename($_FILES["irudia"]["name"]);
-    
+
     if (move_uploaded_file($_FILES["irudia"]["tmp_name"], $target_file)) {
-        
         $xmlPath = 'xml/berriak.xml';
         $xml = simplexml_load_file($xmlPath);
 
-
         $berriBerria = $xml->addChild('berria');
-        $berriBerria->addChild('irudia', htmlspecialchars($irudiaNom));
-        $berriBerria->addChild('esteka', htmlspecialchars($esteka));
-        $berriBerria->addChild('deskribapena', htmlspecialchars($deskribapena));
-        $berriBerria->addChild('tituloa', htmlspecialchars($tituloa));
+        $berriBerria->addChild('irudia',       htmlspecialchars($irudiaNom));
+        $berriBerria->addChild('esteka',        htmlspecialchars($esteka));
+        $berriBerria->addChild('deskribapena',  htmlspecialchars($deskribapena));
+        $berriBerria->addChild('tituloa',       htmlspecialchars($tituloa));
 
         $xml->asXML($xmlPath);
         $mezua = "Albistea ondo gorde da!";
@@ -48,18 +46,24 @@ include 'includes/header.php';
         </header>
 
         <form class="w3-container w3-padding-24" method="POST" enctype="multipart/form-data">
-            <?php if(isset($mezua)): ?>
+            <?php if (isset($mezua)): ?>
                 <div class="w3-panel w3-green w3-round w3-padding">
                     <p><?php echo $mezua; ?> <a href="berriak.php"><b>Ikusi hemen</b></a></p>
                 </div>
             <?php endif; ?>
 
+            <?php if (isset($errorea)): ?>
+                <div class="w3-panel w3-red w3-round w3-padding">
+                    <p><?php echo $errorea; ?></p>
+                </div>
+            <?php endif; ?>
+
             <div class="w3-section">
-                <label><b>Albistearen Tituloa</b> </label>
+                <label><b>Albistearen Tituloa</b></label>
                 <textarea class="w3-input w3-border w3-round" name="tituloa" rows="1" required></textarea>
             </div>
 
-             <div class="w3-section">
+            <div class="w3-section">
                 <label><b>Albistearen Deskribapena</b> (Hau da webgunean agertuko den testua)</label>
                 <textarea class="w3-input w3-border w3-round" name="deskribapena" rows="3" required></textarea>
             </div>

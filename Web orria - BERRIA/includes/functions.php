@@ -1,21 +1,24 @@
 <?php
+
+// XML fitxategia XSD eskemaren arabera baliozkotzen du
 function validarXML($xmlPath, $xsdPath) {
     $dom = new DOMDocument();
     if (!@$dom->load($xmlPath)) return false;
 
-    libxml_use_internal_errors(true); 
-    
+    libxml_use_internal_errors(true);
+
     if ($dom->schemaValidate($xsdPath)) {
         return true;
     } else {
-        $errors = libxml_get_errors();
-        foreach ($errors as $error) {
-            echo "<p style='color:red;'>Error XSD: " . $error->message . "</p>";
+        foreach (libxml_get_errors() as $error) {
+            echo "<p style='color:red;'>XSD errorea: " . $error->message . "</p>";
         }
         libxml_clear_errors();
         return false;
     }
 }
+
+// XML bat (edo bide bat) XSLT erabiliz HTML bihurtzen du
 function transformar($xmlObj, $xslPath, $parametros = []) {
     if (is_string($xmlObj)) {
         $xml = new DOMDocument();
@@ -29,6 +32,7 @@ function transformar($xmlObj, $xslPath, $parametros = []) {
 
     $proc = new XSLTProcessor();
     $proc->importStyleSheet($xsl);
+
     foreach ($parametros as $nombre => $valor) {
         $proc->setParameter('', $nombre, $valor);
     }
@@ -36,20 +40,24 @@ function transformar($xmlObj, $xslPath, $parametros = []) {
     return $proc->transformToXML($xml);
 }
 
+// Sailkapenako XML sortzen du: puntuak, irabaziak, etab. kalkulatuta
 function generarXMLSailkapena($xmlFederazioa, $idTemporada) {
     $equipos = [];
     $denboraldiaSeleccionada = null;
+
     foreach ($xmlFederazioa->Denboraldiak->Denboraldia as $d) {
         if ((string)$d['urtea'] === $idTemporada) {
             $denboraldiaSeleccionada = $d;
             break;
         }
     }
+
     if ($denboraldiaSeleccionada === null) {
         $dom = new DOMDocument('1.0', 'UTF-8');
         $dom->loadXML('<Sailkapena></Sailkapena>');
         return $dom;
     }
+
     if (isset($denboraldiaSeleccionada->DenboraldikoTaldeak->Talde)) {
         foreach ($denboraldiaSeleccionada->DenboraldikoTaldeak->Talde as $t) {
             $nombre = (string)$t->Izena;
@@ -64,31 +72,29 @@ function generarXMLSailkapena($xmlFederazioa, $idTemporada) {
 
     if (isset($denboraldiaSeleccionada->Jardunaldiak->Jardunaldi)) {
         foreach ($denboraldiaSeleccionada->Jardunaldiak->Jardunaldi as $j) {
-            if (isset($j->Partidua)) {
-                foreach ($j->Partidua as $p) {
-                    if (isset($p['egoera']) && (string)$p['egoera'] === 'JokatuGabe') {
-                        continue; 
-                    }
-                    if (!isset($p->Emaitza)) {
-                        continue;
-                    }
+            if (!isset($j->Partidua)) continue;
 
-                    $e = (string)$p->EtxekoTaldea;
-                    $k = (string)$p->KanpokoTaldea;
-                    $ge = (int)$p->Emaitza['etxekoGolak'];
-                    $gk = (int)$p->Emaitza['kanpokoGolak'];
-                    if (isset($equipos[$e]) && isset($equipos[$k])) {
-                        $equipos[$e]['pj']++; $equipos[$e]['gf'] += $ge; $equipos[$e]['gc'] += $gk;
-                        $equipos[$k]['pj']++; $equipos[$k]['gf'] += $gk; $equipos[$k]['gc'] += $ge;
-                        if ($ge > $gk) {
-                            $equipos[$e]['puntos'] += 3; $equipos[$e]['pg']++; $equipos[$k]['pp']++;
-                        } elseif ($ge < $gk) {
-                            $equipos[$k]['puntos'] += 3; $equipos[$k]['pg']++; $equipos[$e]['pp']++;
-                        } else {
-                            $equipos[$e]['puntos'] += 1; $equipos[$k]['puntos'] += 1;
-                            $equipos[$e]['pe']++; $equipos[$k]['pe']++;
-                        }
-                    }
+            foreach ($j->Partidua as $p) {
+                if (isset($p['egoera']) && (string)$p['egoera'] === 'JokatuGabe') continue;
+                if (!isset($p->Emaitza)) continue;
+
+                $e  = (string)$p->EtxekoTaldea;
+                $k  = (string)$p->KanpokoTaldea;
+                $ge = (int)$p->Emaitza['etxekoGolak'];
+                $gk = (int)$p->Emaitza['kanpokoGolak'];
+
+                if (!isset($equipos[$e]) || !isset($equipos[$k])) continue;
+
+                $equipos[$e]['pj']++; $equipos[$e]['gf'] += $ge; $equipos[$e]['gc'] += $gk;
+                $equipos[$k]['pj']++; $equipos[$k]['gf'] += $gk; $equipos[$k]['gc'] += $ge;
+
+                if ($ge > $gk) {
+                    $equipos[$e]['puntos'] += 3; $equipos[$e]['pg']++; $equipos[$k]['pp']++;
+                } elseif ($ge < $gk) {
+                    $equipos[$k]['puntos'] += 3; $equipos[$k]['pg']++; $equipos[$e]['pp']++;
+                } else {
+                    $equipos[$e]['puntos']++; $equipos[$k]['puntos']++;
+                    $equipos[$e]['pe']++;     $equipos[$k]['pe']++;
                 }
             }
         }
@@ -103,32 +109,33 @@ function generarXMLSailkapena($xmlFederazioa, $idTemporada) {
 
     $xmlSalida = new SimpleXMLElement('<Sailkapena></Sailkapena>');
     $xmlSalida->addAttribute('temporada', $idTemporada);
-    
+
     foreach ($equipos as $datos) {
         $linea = $xmlSalida->addChild('Lerroa');
-        $linea->addChild('Taldea', htmlspecialchars($datos['izena']));
-        $linea->addChild('Ezkutua', htmlspecialchars($datos['ezkutua']));
-        $linea->addChild('PJ', $datos['pj']);
-        $linea->addChild('Puntuak', $datos['puntos']);
-        $linea->addChild('Irabaziak', $datos['pg']);
-        $linea->addChild('Berdinduak', $datos['pe']);
-        $linea->addChild('Galduak', $datos['pp']);
-        $linea->addChild('AldekoGolak', $datos['gf']);
-        $linea->addChild('AurkakoGolak', $datos['gc']);
+        $linea->addChild('Taldea',        htmlspecialchars($datos['izena']));
+        $linea->addChild('Ezkutua',       htmlspecialchars($datos['ezkutua']));
+        $linea->addChild('PJ',            $datos['pj']);
+        $linea->addChild('Puntuak',       $datos['puntos']);
+        $linea->addChild('Irabaziak',     $datos['pg']);
+        $linea->addChild('Berdinduak',    $datos['pe']);
+        $linea->addChild('Galduak',       $datos['pp']);
+        $linea->addChild('AldekoGolak',   $datos['gf']);
+        $linea->addChild('AurkakoGolak',  $datos['gc']);
     }
 
-    $dom = dom_import_simplexml($xmlSalida)->ownerDocument;
-    return $dom;
+    return dom_import_simplexml($xmlSalida)->ownerDocument;
 }
+
+// federazioa.xml kargatzen du
 function cargarXML() {
     $ruta = 'xml/federazioa.xml';
     if (file_exists($ruta)) {
         return simplexml_load_file($ruta);
-    } else {
-        die("Error: No se encuentra el archivo xml/federazioa.xml. Revisa la carpeta.");
     }
+    die("Errorea: xml/federazioa.xml fitxategia ez da aurkitu.");
 }
 
+// Azken denboraldiaren urtea itzultzen du
 function lortuAzkenDenboraldia() {
     $xml = cargarXML();
     $azkena = "";
@@ -139,4 +146,3 @@ function lortuAzkenDenboraldia() {
     }
     return $azkena;
 }
-?>

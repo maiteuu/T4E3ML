@@ -13,23 +13,20 @@ include_once 'includes/functions.php';
 
     <section class="w3-container w3-center" style="max-width: 900px; margin: 0 auto 50px auto;">
         <p class="w3-large" style="line-height: 1.6;">
-            <b>FNFS (Federación Nacional de Futbol Sala)</b> erakundeak aro berri bati ekin dio. 
-            <i>Dualtech</i>-eko adituek (Markel Abascal eta Oier Marañón) garatutako Plan Estrategiko Integralari esker, 
+            <b>FNFS (Federación Nacional de Futbol Sala)</b> erakundeak aro berri bati ekin dio.
+            <i>Dualtech</i>-eko adituek (Markel Abascal eta Oier Marañón) garatutako Plan Estrategiko Integralari esker,
             gure kirola modernizatu dugu. Kirolaren bikaintasuna, eraldaketa digitala eta ingurumenarekiko errespetua dira gure zutabeak.
         </p>
     </section>
 
     <section class="w3-container w3-margin-bottom" style="max-width: 1200px; margin: 0 auto;">
-        
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 20px;">
-            
+
             <div class="w3-card-4 w3-round-large w3-padding-24 w3-center cardBisuala" style="display: flex; flex-direction: column; height: 100%;">
                 <i class="fa fa-microchip w3-margin-bottom" style="font-size:64px; color:#871521;"></i>
-                
                 <div style="height: 80px; display: flex; align-items: center; justify-content: center;">
                     <h3 style="font-weight: bold; color: #333; margin: 0;">Eraldaketa Digitala (IT/OT)</h3>
                 </div>
-                
                 <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-start;">
                     <p class="w3-padding" style="text-align: left; margin-bottom: 0;">
                         Prozesuen digitalizazio integrala martxan jarri dugu. Teknologia Gaitzaile Digitalak (THD) erabiliz, gure azpiegiturak konektatzen ditugu:
@@ -45,11 +42,9 @@ include_once 'includes/functions.php';
 
             <div class="w3-card-4 w3-round-large w3-padding-24 w3-center cardBisuala" style="display: flex; flex-direction: column; height: 100%;">
                 <i class="fa fa-leaf w3-margin-bottom" style="font-size:64px; color:#871521;"></i>
-                
                 <div style="height: 80px; display: flex; align-items: center; justify-content: center;">
                     <h3 style="font-weight: bold; color: #333; margin: 0;">Jasangarritasuna</h3>
                 </div>
-                
                 <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: flex-start;">
                     <p class="w3-padding" style="text-align: left; margin-bottom: 0;">
                         Eredu linealetik zirkularrerako jauzia egin dugu hondakinen sorrera ia erabat desagerrarazteko:
@@ -62,7 +57,7 @@ include_once 'includes/functions.php';
                     </ul>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
@@ -75,7 +70,6 @@ include_once 'includes/functions.php';
             </p>
         </div>
     </section>
-
 </main>
 
 <?php include 'includes/footer.php'; ?>

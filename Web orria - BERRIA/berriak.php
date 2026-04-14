@@ -6,13 +6,9 @@ include_once 'includes/functions.php';
 ?>
 
 <main class="w3-container">
-  <xsl:template match="/">
     <div class="orri-titulua-container">
-      <h2 class="orri-titulua">BERRIAK</h2>
-      <span class="orri-marra"></span>
-    </div>
-
-    <div class="w3-container" style="display: flex; flex-wrap: wrap; justify-content: center;">
+        <h2 class="orri-titulua">BERRIAK</h2>
+        <span class="orri-marra"></span>
     </div>
 
     <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'kazetari'): ?>

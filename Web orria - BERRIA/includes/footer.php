@@ -1,5 +1,4 @@
 <?php
-
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -9,13 +8,13 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="info-sesion" style="margin-left: 12px;">
             <?php if (isset($_SESSION['erabiltzailea'])): ?>
                 <p>
-                    <strong>Erabiltzailea:</strong> <?php echo htmlspecialchars($_SESSION['erabiltzailea']); ?> 
+                    <strong>Erabiltzailea:</strong> <?php echo htmlspecialchars($_SESSION['erabiltzailea']); ?>
                     (<?php echo htmlspecialchars($_SESSION['rol']); ?>)
                 </p>
             <?php endif; ?>
 
             <?php if (isset($_SESSION['temporada_id'])): ?>
-                <p><strong>Temporada activa:</strong> <?php echo htmlspecialchars($_SESSION['temporada_id']); ?></p>
+                <p><strong>Denboraldia:</strong> <?php echo htmlspecialchars($_SESSION['temporada_id']); ?></p>
             <?php endif; ?>
         </div>
 

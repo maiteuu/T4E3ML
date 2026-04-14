@@ -2,18 +2,22 @@
 session_start();
 require_once 'includes/functions.php';
 
+// Jokalaria bakarrik sar daiteke
 if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'jokalari') {
     header("Location: index.php");
     exit();
 }
 
+// Aste mota cookie bidez gordetzen da
 $motaAstea = isset($_GET['mota']) ? $_GET['mota'] : ($_COOKIE['preferencia_astea'] ?? 'partido');
 if (isset($_GET['mota'])) {
     setcookie("preferencia_astea", $motaAstea, time() + (86400 * 30), "/");
 }
 
 $xmlPath = 'xml/planifikazioa.xml';
-if (!file_exists($xmlPath)) { die("Errorea: Ez da aurkitu '$xmlPath' fitxategia."); }
+if (!file_exists($xmlPath)) {
+    die("Errorea: Ez da aurkitu '$xmlPath' fitxategia.");
+}
 
 $xml = simplexml_load_file($xmlPath);
 $resultado = $xml->xpath("//mota[@id='$motaAstea']");
@@ -28,7 +32,7 @@ include 'includes/header.php';
         <h2 class="orri-titulua">NIRE PLANA: <?php echo strtoupper($plana['izena']); ?></h2>
     </header>
 
-<section class="selector-astea-container">
+    <section class="selector-astea-container">
         <form method="GET" action="nire_panela.php" class="selector-form">
             <label for="mota-select" class="selector-label">
                 <i class="fa fa-filter"></i> Aukeratu aste mota:
@@ -43,6 +47,7 @@ include 'includes/header.php';
         </form>
     </section>
 
+    <!-- Entrenamendu taula -->
     <article class="w3-card-4 w3-white w3-round-large w3-margin-bottom" style="overflow:hidden">
         <header class="w3-container" style="background-color: #871521; color: white;">
             <h4><i class="fa fa-calendar"></i> ASTEKO ENTRENAMENDUAK</h4>
@@ -58,12 +63,12 @@ include 'includes/header.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($plana->eguna as $eguna): 
+                    <?php foreach ($plana->eguna as $eguna):
                         $esPartidoReal = ($motaAstea == 'partido' && (string)$eguna['izena'] == 'Larunbata');
                     ?>
                     <tr class="<?= $esPartidoReal ? 'fila-partidu-ofiziala' : ''; ?>">
                         <td class="col-eguna"><?= $eguna['izena']; ?></td>
-                        
+
                         <td class="w3-small celda-info">
                             <?php if (mb_stripos($eguna->goizez, 'Atseden') !== false && mb_stripos($eguna->goizez, 'Gimnasioa') === false): ?>
                                 <span class="txt-grande color-atseden">ATSEDENA</span>
@@ -95,6 +100,7 @@ include 'includes/header.php';
         </div>
     </article>
 
+    <!-- Nutrizio taula -->
     <article class="w3-card-4 w3-white w3-round-large" style="overflow:hidden">
         <header class="w3-container w3-teal">
             <h4><i class="fa fa-cutlery"></i> NUTRIZIO PLANA</h4>
@@ -111,7 +117,7 @@ include 'includes/header.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($plana->eguna as $eguna): 
+                    <?php foreach ($plana->eguna as $eguna):
                         $esPartidoReal = ($motaAstea == 'partido' && (string)$eguna['izena'] == 'Larunbata');
                     ?>
                     <tr class="<?= $esPartidoReal ? 'fila-partidu-ofiziala' : ''; ?>">

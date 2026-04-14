@@ -3,12 +3,12 @@ session_start();
 require_once 'includes/functions.php';
 
 $xmlRuta = 'xml/federazioa.xml';
-$xsdRuta = 'xml/federazioa.xsd';
 $xslRuta = 'xml/jardunaldiak.xsl';
 
 if (file_exists($xmlRuta)) {
     $xmlFederazioa = simplexml_load_file($xmlRuta);
-    
+
+    // Denboraldi guztiak biltzen ditugu hautatzailerako
     $denboraldiak = [];
     foreach ($xmlFederazioa->Denboraldiak->Denboraldia as $denb) {
         $denboraldiak[] = (string)$denb['urtea'];
@@ -16,8 +16,8 @@ if (file_exists($xmlRuta)) {
 
     if (isset($_GET['denboraldia'])) {
         $_SESSION['denboraldia_id'] = $_GET['denboraldia'];
-    } 
-    
+    }
+
     if (!isset($_SESSION['denboraldia_id'])) {
         $_SESSION['denboraldia_id'] = end($denboraldiak);
     }
@@ -26,11 +26,11 @@ if (file_exists($xmlRuta)) {
 }
 
 $pageTitle = "Emaitzak eta Jardunaldiak";
-include 'includes/header.php'; 
+include 'includes/header.php';
 ?>
 
 <main class="w3-container w3-padding-32" style="display: flex; flex-direction: column; align-items: center;">
-    
+
     <div class="orri-titulua-container">
         <h2 class="orri-titulua">JARDUNALDIAK</h2>
         <span class="orri-marra"></span>
@@ -48,19 +48,19 @@ include 'includes/header.php';
     </div>
 
     <?php
+    // XSLT eraldaketa, denboraldia parametro gisa pasatuz
     $xmlDoc = new DOMDocument;
-    $xmlDoc->load($xmlRuta); 
+    $xmlDoc->load($xmlRuta);
 
     $xslDoc = new DOMDocument;
-    $xslDoc->load($xslRuta); 
+    $xslDoc->load($xslRuta);
 
     $proc = new XSLTProcessor;
     $proc->importStyleSheet($xslDoc);
-    
-    // PASAMOS LA TEMPORADA AL XSLT
     $proc->setParameter('', 'p_denboraldia', $oraingoDenboraldia);
-    
+
     echo $proc->transformToXML($xmlDoc);
     ?>
 </main>
+
 <?php include 'includes/footer.php'; ?>

@@ -7,12 +7,12 @@ include_once 'includes/functions.php';
 
 <main>
     <section class="w3-container hasiera" style="padding-top: 32px;">
-        
+
         <div class="orri-titulua-container">
             <h2 class="orri-titulua">EGUNEKO PARTIDARIK ONENA</h2>
             <span class="orri-marra"></span>
         </div>
-        
+
         <article class="hasieraArtikulo">
             <div class="partidarikOnena">
                 <div>
@@ -43,12 +43,11 @@ include_once 'includes/functions.php';
             <span class="orri-marra"></span>
         </div>
 
-        <div class="w3-container w3-center" style="max-width: 900px; margin: 0 auto; margin-bottom: 40px;">
+        <div class="w3-container w3-center" style="max-width: 900px; margin: 0 auto 40px auto;">
             <p class="w3-large"><b>FNFS</b> areto-futbola modernizatzeko lanean ari den erakundea da. Gure helburua kirolaren bikaintasuna teknologiarekin eta ingurumenarekiko errespetuarekin uztartzea da.</p>
         </div>
 
         <div class="taldeFlex">
-            
             <article class="articleTaldeak">
                 <div class="w3-card-4 w3-round-large w3-padding-24 cardBisuala w3-center">
                     <div class="w3-margin-bottom">
@@ -78,7 +77,6 @@ include_once 'includes/functions.php';
                     <p class="w3-padding">Teknologia jokalarien zerbitzura jartzen dugu, lesioen prebentzioa hobetuz eta kirol-segurtasuna bermatzeko datu analitika erabiliz.</p>
                 </div>
             </article>
-
         </div>
     </section>
 
@@ -87,7 +85,6 @@ include_once 'includes/functions.php';
             Gure Proiektua Ezagutu
         </a>
     </div>
-
 </main>
 
 <?php include 'includes/footer.php'; ?>

@@ -1,16 +1,15 @@
 <?php
 session_start();
-require_once 'includes/functions.php'; // Ruta correcta
+require_once 'includes/functions.php';
 
-// 1. PROCESAR LÓGICA ANTES DE PINTAR NADA
 $xmlRuta = 'xml/federazioa.xml';
 $xsdRuta = 'xml/federazioa.xsd';
 $xslRuta = 'xml/sailkapena.xsl';
 
 if (validarXML($xmlRuta, $xsdRuta)) {
     $xmlFederazioa = simplexml_load_file($xmlRuta);
-    
 
+    // Denboraldi guztiak biltzen ditugu hautatzailerako
     $denboraldiak = [];
     foreach ($xmlFederazioa->Denboraldiak->Denboraldia as $denb) {
         $denboraldiak[] = (string)$denb['urtea'];
@@ -18,23 +17,21 @@ if (validarXML($xmlRuta, $xsdRuta)) {
 
     if (isset($_GET['denboraldia'])) {
         $_SESSION['denboraldia_id'] = $_GET['denboraldia'];
-    } 
+    }
 
     if (!isset($_SESSION['denboraldia_id'])) {
         $_SESSION['denboraldia_id'] = end($denboraldiak);
     }
 
     $oraingoDenboraldia = $_SESSION['denboraldia_id'];
+
     $pageTitle = "Sailkapena";
-    include 'includes/header.php'; 
+    include 'includes/header.php';
 
     echo '<main class="w3-container" style="display: flex; flex-direction: column; align-items: center;">';
-    
-    // Título
     echo '<div class="orri-titulua-container"><h2 class="orri-titulua">SAILKAPENA</h2><span class="orri-marra"></span></div>';
-
-    // Formulario de selección
     ?>
+
     <div class="w3-center w3-margin-bottom" style="margin-top: 10px;">
         <form method="GET" action="sailkapena.php" style="display: inline-flex; align-items: center; gap: 10px;">
             <label for="denboraldia" style="color: #871521; font-weight: bold;">Denboraldia:</label>
@@ -45,9 +42,9 @@ if (validarXML($xmlRuta, $xsdRuta)) {
             </select>
         </form>
     </div>
-    <?php
 
-    // Transformación XSLT
+    <?php
+    // Puntuak kalkulatu eta XSLT eraldaketa egin
     $xmlConPuntos = generarXMLSailkapena($xmlFederazioa, $oraingoDenboraldia);
     echo transformar($xmlConPuntos, $xslRuta);
 

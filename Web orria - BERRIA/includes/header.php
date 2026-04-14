@@ -2,6 +2,7 @@
 
 require_once 'includes/functions.php';
 
+// Azken denboraldia ezartzen dugu saioan ez badago
 if (!isset($_SESSION['denboraldia_id'])) {
     $_SESSION['denboraldia_id'] = lortuAzkenDenboraldia();
 }
@@ -15,13 +16,7 @@ if (!isset($_SESSION['denboraldia_id'])) {
     <link rel="stylesheet" href="estiloa/nireestiloa.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?php
-        if (isset($pageTitle)) {
-            echo $pageTitle . " - LNFS";
-        } else {
-            echo "LNFS";
-        }
-        ?>
+        <?php echo isset($pageTitle) ? $pageTitle . " - LNFS" : "LNFS"; ?>
     </title>
 </head>
 
