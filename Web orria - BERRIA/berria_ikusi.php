@@ -26,7 +26,7 @@ foreach ($berriakXML->berria as $b) {
     <?php if ($berria): ?>
         
         <div class="w3-card-4 w3-white w3-round-large" style="overflow:hidden;">
-            <img src="irudiak/berriak/<?php echo htmlspecialchars($berria->irudia); ?>" 
+            <img src="media/irudiak/berriak/<?php echo htmlspecialchars($berria->irudia); ?>" 
                  alt="<?php echo htmlspecialchars($berria->tituloa); ?>" 
                  style="width:100%; max-height: 400px; object-fit: cover;">
             

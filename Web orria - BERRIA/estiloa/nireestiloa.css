@@ -275,37 +275,37 @@ footer {
 }
 
 .links a.instagram {
-    background-image: url("../irudiak/InstaCrema.png");
+    background-image: url("../media/irudiak/InstaCrema.png");
     border: #871521 solid 1px;
     border-radius: 17px;
 }
 
 .links a.youtube {
-    background-image: url("../irudiak/YoutubeCrema.png");
+    background-image: url("../media/irudiak/YoutubeCrema.png");
     border: #871521 solid 1px;
     border-radius: 17px;
 }
 
 .links a.tiktok {
-    background-image: url("../irudiak/TikTokCrema.png");
+    background-image: url("../media/irudiak/TikTokCrema.png");
     border: #871521 solid 1px;
     border-radius: 17px;
 }
 
 .links a.instagram:hover {
-    background-image: url("../irudiak/InstaCrema.png");
+    background-image: url("../media/irudiak/InstaCrema.png");
     border: #871521 solid 1px;
     border-radius: 17px;
 }
 
 .links a.youtube:hover {
-    background-image: url("../irudiak/YoutubeCrema.png");
+    background-image: url("../media/irudiak/YoutubeCrema.png");
     border: #871521 solid 1px;
     border-radius: 17px;
 }
 
 .links a.tiktok:hover {
-    background-image: url("../irudiak/TikTokCrema.png");
+    background-image: url("../media/irudiak/TikTokCrema.png");
     border: #871521 solid 1px;
     border-radius: 17px;
 }
@@ -405,19 +405,19 @@ footer {
     }
 
     .links a.instagram {
-        background-image: url("../irudiak/Instagramgranate.png");
+        background-image: url("../media/irudiak/Instagramgranate.png");
         border: #f9f4f1 solid 1px;
         border-radius: 17px;
     }
 
     .links a.youtube {
-        background-image: url("../irudiak/Youtubegranate.png");
+        background-image: url("../media/irudiak/Youtubegranate.png");
         border: #f9f4f1 solid 1px;
         border-radius: 17px;
     }
 
     .links a.tiktok {
-        background-image: url("../irudiak/TiktokGranate.png");
+        background-image: url("../media/irudiak/TiktokGranate.png");
         border: #f9f4f1 solid 1px;
         border-radius: 17px;
     }

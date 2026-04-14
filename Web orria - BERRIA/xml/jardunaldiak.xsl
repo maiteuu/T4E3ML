@@ -34,7 +34,7 @@
                                             <div style="display: flex; align-items: center; justify-content: space-between; padding: 25px 15px;">
 
                                                 <div style="flex: 1; text-align: center;">
-                                                    <img src="irudiak/eskutua/{EtxekoEzkutua}.png" alt="{EtxekoTaldea}" style="width: 55px; height: 55px; object-fit: contain; margin-bottom: 12px;" onerror="this.src='irudiak/eskutua/defecto.png'" />
+                                                    <img src="media/irudiak/eskutua/{EtxekoEzkutua}.png" alt="{EtxekoTaldea}" style="width: 55px; height: 55px; object-fit: contain; margin-bottom: 12px;" onerror="this.src='media/irudiak/eskutua/defecto.png'" />
                                                     <div style="font-size: 0.85em; font-weight: bold; color: #444; height: 35px; display: flex; align-items: center; justify-content: center; line-height: 1.2;">
                                                         <xsl:value-of select="EtxekoTaldea" />
                                                     </div>
@@ -56,7 +56,7 @@
                                                 </div>
 
                                                 <div style="flex: 1; text-align: center;">
-                                                    <img src="irudiak/eskutua/{KanpokoEzkutua}.png" alt="{KanpokoTaldea}" style="width: 55px; height: 55px; object-fit: contain; margin-bottom: 12px;" onerror="this.src='irudiak/eskutua/defecto.png'" />
+                                                    <img src="media/irudiak/eskutua/{KanpokoEzkutua}.png" alt="{KanpokoTaldea}" style="width: 55px; height: 55px; object-fit: contain; margin-bottom: 12px;" onerror="this.src='media/irudiak/eskutua/defecto.png'" />
                                                     <div style="font-size: 0.85em; font-weight: bold; color: #444; height: 35px; display: flex; align-items: center; justify-content: center; line-height: 1.2;">
                                                         <xsl:value-of select="KanpokoTaldea" />
                                                     </div>

@@ -24,7 +24,7 @@
                 <a href="taldeak.php?izena={Izena}" style="text-decoration: none; color: inherit;">
                   <div class="w3-card w3-white w3-padding-24 w3-round-large w3-hover-shadow"
                     style="cursor: pointer; transition: 0.3s;">
-                    <img src="irudiak/eskutua/{Ezkutua}.png"
+                    <img src="media/irudiak/eskutua/{Ezkutua}.png"
                       style="width: 100px; height: 100px; object-fit: contain; margin-bottom: 15px;" />
                     <h4 style="font-weight: bold; color: #871521; margin: 0; font-size: 1.2em;">
                       <xsl:value-of select="Izena" />
@@ -64,7 +64,7 @@
 
               <header class="w3-container" style="background-color:#871521; color:white;">
                 <h3 style="margin: 15px 0; display: flex; align-items: center;">
-                  <img src="irudiak/eskutua/{Ezkutua}.png"
+                  <img src="media/irudiak/eskutua/{Ezkutua}.png"
                     style="width:100px; margin-right:20px; object-fit: contain;" />
                   <xsl:value-of select="Izena" />
                 </h3>
@@ -104,7 +104,7 @@
         <tr>
                             <td style="text-align:center;">
                               <img class="w3-image jokalariArgazkia"
-                                src="irudiak/jokalariak/{Argazkia}" alt="Plater irudia" />
+                                src="media/irudiak/jokalariak/{Argazkia}" alt="Plater irudia" />
                             </td>
                             <td>
                               <xsl:value-of select="@Dortsala" />

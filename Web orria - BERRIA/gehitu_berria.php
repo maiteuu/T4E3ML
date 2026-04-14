@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $irudiaNom = $_FILES['irudia']['name'];
 
     // Irudia kargatzen dugu
-    $target_dir = "irudiak/berriak/";
+    $target_dir = "media/irudiak/berriak/";
     $target_file = $target_dir . basename($_FILES["irudia"]["name"]);
     
     if (move_uploaded_file($_FILES["irudia"]["tmp_name"], $target_file)) {

@@ -19,9 +19,9 @@ include_once 'includes/functions.php';
                     <p style="font-weight:bold; color:#666;">2026/04/10<br>19:00</p>
                 </div>
                 <div class="partidarikOnenaEmaitza">
-                    <img src="irudiak/eskutua/barcelona.png" alt="Barça" class="partidarikOnenaEskutuak" onerror="this.src='irudiak/eskutua/defecto.png'">
+                    <img src="media/irudiak/eskutua/barcelona.png" alt="Barça" class="partidarikOnenaEskutuak" onerror="this.src='media/irudiak/eskutua/defecto.png'">
                     <p>5 - 3</p>
-                    <img src="irudiak/eskutua/ribera.png" alt="Ribera" class="partidarikOnenaEskutuak" onerror="this.src='irudiak/eskutua/defecto.png'">
+                    <img src="media/irudiak/eskutua/ribera.png" alt="Ribera" class="partidarikOnenaEskutuak" onerror="this.src='media/irudiak/eskutua/defecto.png'">
                 </div>
                 <div>
                     <a class="partidarikOnenaUbi" href="#" target="_blank">Palau Blaugrana</a>
@@ -30,7 +30,7 @@ include_once 'includes/functions.php';
 
             <div>
                 <video class="partidarikOnenaBideoa" controls autoplay muted loop>
-                    <source src="bideoak/videoindex.mp4" type="video/mp4">
+                    <source src="media/bideoak/videoindex.mp4" type="video/mp4">
                     Zure nabigatzaileak ez du bideo mota baimentzen.
                 </video>
             </div>

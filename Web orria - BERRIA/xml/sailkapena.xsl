@@ -57,7 +57,7 @@
                                 <td style="vertical-align: middle; padding-left: 15px;">
                                     <a href="taldeak.php?izena={Taldea}&amp;origen=sailkapena"
                                         style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px; font-weight: bold;">
-                                        <img src="irudiak/eskutua/{Ezkutua}.png"
+                                        <img src="media/irudiak/eskutua/{Ezkutua}.png"
                                             style="width: 30px; height: 30px; object-fit: contain;" />
                                         <xsl:value-of select="Taldea" />
                                     </a>

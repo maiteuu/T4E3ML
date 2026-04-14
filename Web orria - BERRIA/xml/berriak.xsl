@@ -10,7 +10,7 @@
                     class="tarjeta-berria-grid">
 
                     <div class="imagen-berria-grid">
-                        <img src="irudiak/berriak/{irudia}" alt="{tituloa}" />
+                        <img src="media/irudiak/berriak/{irudia}" alt="{tituloa}" />
                     </div>
 
                     <div class="texto-berria-grid">

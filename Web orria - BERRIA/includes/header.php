@@ -30,7 +30,7 @@ if (!isset($_SESSION['denboraldia_id'])) {
     <header>
         <div class="goiburuko-goikoa">
             <a id="hasieraLogo" href="index.php" class="logo-zentratua">
-                <img src="irudiak/FNFS Logo granate transparente.png" alt="Logoa" class="logoa">
+                <img src="media/irudiak/FNFS Logo granate transparente.png" alt="Logoa" class="logoa">
             </a>
 
             <?php if (isset($_SESSION['denboraldia_id'])): ?>
